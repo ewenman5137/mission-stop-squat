@@ -1,0 +1,145 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+#containeurNav{
+    z-index: 10;
+    margin-top: 0;
+    position: fixed;
+    width: 96%;
+    padding-left: 2%;
+    padding-right: 2%;
+    height: 10vh;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+nav div{
+    display: flex;
+}
+nav div img{
+    height: 10vh;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+#blocGauche{
+    display: flex;
+    width: 22%;
+    justify-content: space-between;
+}
+#blocDroit{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    margin-right: 5%;
+}
+
+#header{
+    height: 100vh;
+    width: 100%;
+    background-image: url('maison.png'); /* Image en fond */
+    background-size: cover; /* Adapte l'image à la taille */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+    position: relative; /* Pour superposer du contenu */
+    filter: brightness(80%);
+}
+#home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: white;
+}
+
+#home h1{
+    font-weight: bold;
+    font-size: 3rem;
+}
+#home p{
+    font-size: 1.5rem;
+}
+#containeurButton{
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    justify-content: space-between;
+}
+
+#contactezNous{
+    background-color: #3D608D;
+    padding: 5%;
+    border-radius: 100px;
+}
+
+#enSavoir{
+    padding: 5% 10%;
+    border-radius: 100px;
+    border: 1px white solid;
+}
+
+#enSavoir:hover{
+    padding: 5% 10%;
+    border-radius: 100px;
+    border: 1px white solid;
+    background-color: rgba(255, 255, 255, 0.205);
+}
+
+#containeurInfoFormulaire{
+    display: flex;
+    flex-direction: row;
+    width: 96%;
+    margin-left: 2%;
+}
+#containeurExplication{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-right: 10%;
+}
+
+#containeurExplication h2{
+    font-weight: 500;
+}
+#containeurExplication #descriptionExplication{
+    color: rgb(141, 141, 141);
+}
+#containeurCommentCelaFonctionne{
+    color: black;
+}
+.etape{
+    display: flex;
+    justify-content: space-between;
+}
+.chiffre{
+    color: orange;
+    font-size: 2rem;
+    border: 2px solid orange;
+    width: 10%;
+    border-radius: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.infoChiffre{
+    margin-top: 5%;
+    width: 80%;
+    color: rgb(141, 141, 141);
+}
+
+
