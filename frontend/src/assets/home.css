@@ -10,6 +10,7 @@ body{
     padding-left: 2%;
     padding-right: 2%;
     height: 10vh;
+    background-color: rgba(128, 128, 128, 0.6);
 }
 a{
     color: white;
@@ -103,6 +104,8 @@ nav div img{
     flex-direction: row;
     width: 96%;
     margin-left: 2%;
+    justify-content: space-around;
+    margin-top: 5vh;
 }
 #containeurExplication{
     display: flex;
@@ -130,6 +133,8 @@ nav div img{
     border: 2px solid orange;
     width: 10%;
     border-radius: 100%;
+    max-width: 60px;
+    max-height: 60px;
     aspect-ratio: 1/1;
     display: flex;
     align-items: center;
@@ -140,6 +145,205 @@ nav div img{
     margin-top: 5%;
     width: 80%;
     color: rgb(141, 141, 141);
+    font-size: 1.5rem;
+}
+
+#formulaireContact{
+    border: 1px solid rgb(93, 93, 93);
+    padding: 2%;
+    border-radius: 20px;
+    width: 40%;
+}
+
+.containeurChamp{
+    display: flex;
+    flex-direction: column;
+}
+.containeurChamp input{
+    margin-top: -1%;
+    height: 3.5vh;
+    min-height: 30px;
+}
+#description{
+    height: 10vh;
+}
+#containeurCheckbox{
+    display: flex;
+}
+.buttonEnvoyer{
+    background-color: #3D608D;
+    color: white;
+    padding: 5%;
+    width: 100%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
 }
 
 
+
+
+#quiSommeNous{
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+    margin-left: 2%;
+}
+#containeurTextImageQuiSommeNous{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 60vh;
+}
+#containeurTextImageQuiSommeNous p{
+    font-size: 1.5rem;
+    width: 60%;
+}
+#containeurTextImageQuiSommeNous img{
+    height: 80%;
+}
+
+#notreSolution{
+    display: flex;
+    background-color: #2d2d2d;
+    flex-direction: column;
+    color: white;
+    width: 96%;
+    padding: 0% 2%;
+    height: 60vh;
+}
+#containeurBlocRachat{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.blocRachat{
+    background-color: #284360;
+    width: 25%;
+    padding: 2%;
+}
+.blocRachat div{
+    display: flex;
+    width: 90%;
+}
+.blocRachat img{
+    width: 10%;
+    object-fit: contain;
+}
+.blocRachat div p{
+    font-size: 1.2rem;
+    margin-left: 10%;
+}
+
+#nosValeurs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 96%;
+    margin-left: 2%;
+}
+#containeurNosValeurs{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.valeur{
+    width: 30%;
+}
+.valeur img{
+    background-color: #F1E8CB;
+    padding: 2%;
+    border-radius: 100%;
+    height: 10%;
+}
+.valeur h2{
+    font-weight: 400;
+}
+#containeurFAQ{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10vh;
+}
+#questionFAQ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+    background: white;
+    border-radius: 8px;
+    text-align: center;
+    width: 45%;
+}
+
+
+#questionFAQ input,
+#questionFAQ textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s ease-in-out;
+}
+
+#questionFAQ input:focus,
+#questionFAQ textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#questionFAQ textarea {
+    height: 120px;
+    resize: none;
+}
+
+
+#FAQ{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+}
+
+
+
+footer{
+    background-color: #284360;
+    color: white;
+    padding: 1% 5%;
+    width: 90%;
+}
+footer p{
+    font-size: 1.2rem;
+}
+#infoReseaux{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+#containeurReseaux{
+    display: flex;
+    justify-content: space-between;
+    width: 18%;
+}
+#containeurReseaux img{
+    height: 5vh;
+}
+.barreSeparation{
+    margin-top: 1%;
+    border: 1px rgba(255, 255, 255, 0.25) solid;
+}
+#containeurMentions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
