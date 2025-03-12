@@ -1,17 +1,65 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../assets/home.css"
 import FAQAccordion from "../composant/FAQAccordion";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
-const faqData = [
-    { question: "Qu’est-ce qu’un squat de maison ?", answer: "Un squat est l'occupation d'un logement sans autorisation du propriétaire." },
-    { question: "Le droit de propriété", answer: "Le droit de propriété est protégé par la loi et permet de disposer librement de son bien." },
-    { question: "Le droit au logement", answer: "Le droit au logement est réaffirmé par la loi Besson du 31 mai 1990..." }
-  ];
+
   
 function Home() {    
     const [phone, setPhone] = useState("");
+    const [faqData, setFaqData] = useState([]); // État pour stocker les questions
+    const [nomFAQ, setNomFAQ] = useState(""); // Stocke le nom
+    const [question, setQuestion] = useState(""); // Stocke la question
+    const [message, setMessage] = useState("");
+    // Fonction pour récupérer les questions depuis l'API
+    useEffect(() => {
+        fetch("http://127.0.0.1:5000/faq/get_question") // URL de ton API Flask
+            .then((response) => response.json()) // Convertir en JSON
+            .then((data) => {
+                console.log("Données FAQ reçues :", data); // Debug dans la console
+                setFaqData(data); // Mettre à jour l'état avec les questions reçues
+            })
+            .catch((error) => console.error("Erreur lors de la récupération des FAQ :", error));
+    }, []);
+
+    const envoyerQuestion = async (e) => {
+        e.preventDefault(); // Empêche le rechargement de la page
+        
+        if (!nomFAQ || !question) {
+            setMessage("Veuillez remplir tous les champs !");
+            return;
+        }
+
+        const requestData = {
+            nom: nomFAQ,
+            question: question,
+            reponse: "", // La réponse sera vide au départ
+        };
+
+        try {
+            const response = await fetch("http://127.0.0.1:5000/faq/add_question", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(requestData),
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                setMessage("✅ Question envoyée avec succès !");
+                setNomFAQ(""); // Réinitialiser le champ nom
+                setQuestion(""); // Réinitialiser le champ question
+            } else {
+                setMessage("❌ Erreur lors de l'envoi de la question !");
+            }
+        } catch (error) {
+            console.error("Erreur :", error);
+            setMessage("❌ Une erreur est survenue.");
+        }
+    };
+
     return (
         <>
         <div>
@@ -169,12 +217,13 @@ function Home() {
                 </div>
             </div>
             <div id="containeurFAQ">
-                <div id="questionFAQ">
-                    <h1>Posez-votre question</h1>
-                    <input type="text" placeholder="Nom Prénom" />
-                    <textarea name="" placeholder="Votre question" id=""></textarea>
-                    <button className="buttonEnvoyer">Envoyer</button>
-                </div>
+            <div id="questionFAQ">
+                <h1>Posez-votre question</h1>
+                <input type="text" placeholder="Nom Prénom" value={nomFAQ} onChange={(e) => setNomFAQ(e.target.value)}/>
+                <textarea placeholder="Votre question" value={question} onChange={(e) => setQuestion(e.target.value)}/>
+                <button className="buttonEnvoyer" onClick={envoyerQuestion}>Envoyer</button>
+                {message && <p>{message}</p>} {/* Affichage du message de confirmation ou d'erreur */}
+            </div>
                 <div id="FAQ">
                     <h1>FAQ</h1>
                     <FAQAccordion data={faqData} />

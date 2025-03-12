@@ -1,5 +1,7 @@
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import Home from './pages/Home';
+import Faq from './pages/Faq';
+import Chatbot from './pages/Chatbot';
 
 function App() {
 
@@ -7,6 +9,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/chatbot" element={<Chatbot/>} />
+        <Route path="/faq" element={<Faq/>} />
       </Routes>
     </BrowserRouter>
   )

@@ -1,0 +1,44 @@
+
+#faq{
+    display: flex;
+    height: 100vh;
+}
+
+#containeurQuestion{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.question{
+    margin-top: 2%;
+    margin-left: 6%;
+    width: 20%;
+    padding: 2%;
+    height: 35%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2), 
+    0px 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+.contenu{
+    height: 70%;
+}
+.containeurBtn{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.btnSup,.btnRepondre{
+    color: white;
+    padding: 2% 5%;
+    border: none;
+    border-radius: 5px;
+}
+.btnSup{
+    background-color: red;
+}
+.btnRepondre{
+    background-color: #133b62;
+}

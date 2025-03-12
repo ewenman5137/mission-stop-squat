@@ -6,8 +6,9 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 interface FAQItem {
+  nom:string;
   question: string;
-  answer: string;
+  reponse: string;
 }
 
 interface FAQAccordionProps {
@@ -27,7 +28,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ data }) => {
             <Typography component="span">{item.question}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{item.answer}</Typography>
+            <Typography>{item.reponse}</Typography>
           </AccordionDetails>
         </Accordion>
       ))}
