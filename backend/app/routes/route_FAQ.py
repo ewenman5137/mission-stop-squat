@@ -39,22 +39,29 @@ def add_question():
     return jsonify({"message": "Question ajoutée et en attente de validation", "id": new_faq.id}), 201
 
 
-@faq_bp.route('/update_question/<int:question_id>', methods=['PUT'])
-def update_question(question_id):
-    """ Met à jour l'état d'une question pour l'afficher ou la masquer """
+@faq_bp.route('/update_full_question/<int:question_id>', methods=['PUT'])
+def update_full_question(question_id):
+    """ Met à jour tous les champs d'une question et valide l'affichage (etat=True) """
     faq = FAQ.query.get(question_id)
 
     if not faq:
         return jsonify({"error": "Question introuvable"}), 404
 
     data = request.get_json()
-    if "etat" not in data:
-        return jsonify({"error": "Le champ 'etat' est requis"}), 400
+    
+    # Vérification que tous les champs existent dans la requête
+    if "nom" not in data or "question" not in data or "reponse" not in data:
+        return jsonify({"error": "Les champs 'nom', 'question' et 'reponse' sont requis"}), 400
 
-    faq.etat = data["etat"]
+    # Mise à jour des champs
+    faq.nom = data["nom"]
+    faq.question = data["question"]
+    faq.reponse = data["reponse"]
+    faq.etat = True  # Met automatiquement la question en état "visible"
+
     db.session.commit()
 
-    return jsonify({"message": f"Question {question_id} mise à jour avec succès", "etat": faq.etat}), 200
+    return jsonify({"message": f"Question {question_id} mise à jour et validée avec succès", "etat": faq.etat}), 200
 
 
 @faq_bp.route('/delete_question/<int:question_id>', methods=['DELETE'])

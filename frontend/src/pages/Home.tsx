@@ -23,7 +23,7 @@ function Home() {
             .catch((error) => console.error("Erreur lors de la récupération des FAQ :", error));
     }, []);
 
-    const envoyerQuestion = async (e) => {
+    const envoyerQuestion = async (e: { preventDefault: () => void; }) => {
         e.preventDefault(); // Empêche le rechargement de la page
         
         if (!nomFAQ || !question) {
@@ -46,7 +46,6 @@ function Home() {
                 body: JSON.stringify(requestData),
             });
 
-            const data = await response.json();
             if (response.ok) {
                 setMessage("✅ Question envoyée avec succès !");
                 setNomFAQ(""); // Réinitialiser le champ nom
@@ -89,8 +88,10 @@ function Home() {
             </div>
             <div id="containeurInfoFormulaire">
                 <div id="containeurExplication">
-                    <h2>Mission Stop Squat achète votre bien squatté tel quel, avec les occupants.</h2>
-                    <p id="descriptionExplication">Les propriétaires de résidences squattées sont démunis face à des procédures d’expulsion complexes et longues. De plus, les dégradations subies entraînent des frais souvent difficiles à assumer.</p>
+                    <div>
+                        <h2>Mission Stop Squat achète votre bien squatté tel quel, avec les occupants.</h2>
+                        <p id="descriptionExplication">Les propriétaires de résidences squattées sont démunis face à des procédures d’expulsion complexes et longues. De plus, les dégradations subies entraînent des frais souvent difficiles à assumer.</p>
+                    </div>
                     <div id="containeurCommentCelaFonctionne">
                         <h2>Comment cela fonctionne ?</h2>
                         <div className="etape">
@@ -108,7 +109,7 @@ function Home() {
                     </div>
                 </div>
                 <div id="formulaireContact">
-                    <h1>Fomulaire de contact</h1>
+                    <h2>Fomulaire de contact</h2>
                     <div className="barreSeparation"></div>
                     <div className="containeurChamp">
                         <p>Nom</p>
@@ -163,21 +164,21 @@ function Home() {
                             <img src="argent.png" alt="" />
                             <p>Analyse juridique et faisabilité</p>    
                         </div>
-                        <p>Nous examinons la situation du bien : titre de propriété, occupation sans droit ni titre, existence d’une procédure d’expulsion en cours ou à engager. Cette étape permet d’évaluer les risques et les délais nécessaires pour récupérer la pleine possession du bien.</p>
+                        <p className="textBloc">Nous examinons la situation du bien : titre de propriété, occupation sans droit ni titre, existence d’une procédure d’expulsion en cours ou à engager. Cette étape permet d’évaluer les risques et les délais nécessaires pour récupérer la pleine possession du bien.</p>
                     </div>
                     <div className="blocRachat">
                         <div>
                             <img src="securise.png" alt="" />
                             <p>Achat rapide et sécurisé</p>    
                         </div>
-                        <p>Grâce à nos fonds propres, nous achetons comptant et sans condition suspensive. Cette rapidité évite aux vendeurs d’engager de nouvelles procédures coûteuses et incertaines. La vente peut être finalisée en quelques semaines chez le notaire.</p>
+                        <p className="textBloc">Grâce à nos fonds propres, nous achetons comptant et sans condition suspensive. Cette rapidité évite aux vendeurs d’engager de nouvelles procédures coûteuses et incertaines. La vente peut être finalisée en quelques semaines chez le notaire.</p>
                     </div>
                     <div className="blocRachat">
                         <div>
                             <img src="gestion.png" alt="" />
                             <p>Gestion et libération du bien</p>    
                         </div>
-                        <p>Après l’achat, nous prenons en charge l’expulsion si nécessaire, en respectant les procédures légales. Nous sécurisons ensuite le bien et engageons les travaux de rénovation pour le remettre sur le marché.</p>
+                        <p className="textBloc">Après l’achat, nous prenons en charge l’expulsion si nécessaire, en respectant les procédures légales. Nous sécurisons ensuite le bien et engageons les travaux de rénovation pour le remettre sur le marché.</p>
                     </div>
                 </div>
             </div>
@@ -221,7 +222,7 @@ function Home() {
                 <h1>Posez-votre question</h1>
                 <input type="text" placeholder="Nom Prénom" value={nomFAQ} onChange={(e) => setNomFAQ(e.target.value)}/>
                 <textarea placeholder="Votre question" value={question} onChange={(e) => setQuestion(e.target.value)}/>
-                <button className="buttonEnvoyer" onClick={envoyerQuestion}>Envoyer</button>
+                <button id="buttonEnvoyer" onClick={envoyerQuestion}>Envoyer</button>
                 {message && <p>{message}</p>} {/* Affichage du message de confirmation ou d'erreur */}
             </div>
                 <div id="FAQ">
@@ -230,20 +231,20 @@ function Home() {
                 </div>
             </div>
             <footer>
-                <p>Mission stop squat</p>
+                <p id="titre">Mission stop squat</p>
                 <div id="infoReseaux">
                     <p>Nous sommes la société suivante <a href="mission-stop-squat.com">Mission-stop-squat.com</a></p>
                     <div id="containeurReseaux">
-                        <img src="facebook.png" alt="" />
-                        <img src="whatsapp.png" alt="" />
-                        <img src="instagram.png" alt="" />
+                        <a href=""><img src="facebook.png" alt="" /></a>
+                        <a href=""><img src="whatsapp.png" alt="" /></a>
+                        <a href=""><img src="instagram.png" alt="" /></a>
                     </div>
                 </div>
                 <div className="barreSeparation"></div>
-                <div id="containeurMentions">
-                    <p>© 2025 Mission Stop Squat</p>
-                    <a href="">Mentions légales</a>
-                    <p>Designé par Ewen Buhot et Johanne Vigouroux</p>
+                <div id="containeurInfoMentions">
+                    <p className="infoMention">© 2025 Mission Stop Squat</p>
+                    <a className="infoMention" id="mentionsLegal" href="/mentions">Mentions légales</a>
+                    <p className="infoMention" id="designPar">Designé par Ewen Buhot et Johanne Vigouroux</p>
                 </div>
             </footer>
         </div>

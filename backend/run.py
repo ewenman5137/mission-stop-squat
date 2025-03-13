@@ -8,6 +8,7 @@ from app.models.FAQ import FAQ
 from app.models.ChatBot import ChatBot
 from app.routes.route_chatbot import chatbot
 from app.routes.route_FAQ import faq_bp
+from app.routes.route_auth import auth_bp
 from app.routes import base
 
 # Initialisation de l'application Flask
@@ -22,6 +23,7 @@ db.init_app(app)
 app.register_blueprint(base)
 app.register_blueprint(chatbot, url_prefix="/chatbot")
 app.register_blueprint(faq_bp, url_prefix="/faq")
+app.register_blueprint(auth_bp, url_prefix="/auth/")
 
 with app.app_context():
     db.create_all()  # Crée toutes les tables si elles n'existent pas déjà
