@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import "../assets/home.css"
 import FAQAccordion from "../composant/FAQAccordion";
-import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
 
   
 function Home() {    
-    const [phone, setPhone] = useState("");
     const [faqData, setFaqData] = useState([]); // État pour stocker les questions
     const [nomFAQ, setNomFAQ] = useState(""); // Stocke le nom
     const [question, setQuestion] = useState(""); // Stocke la question
@@ -81,8 +79,8 @@ function Home() {
                     <h1>Votre logement est squatté ?</h1>
                     <p>Nous avons la solution.</p>
                     <div id="containeurButton">
-                        <a href="#formulaireContact" id="contactezNous">Contactez-nous</a>
-                        <a href="#formulaireContact" id="enSavoir">En savoir +</a>
+                        <a href="#formulaireContact" className="btnHome" id="contactezNous">Contactez-nous</a>
+                        <a href="#formulaireContact" className="btnHome" id="enSavoir">En savoir +</a>
                     </div>
                 </div>
             </div>
@@ -110,7 +108,7 @@ function Home() {
                 </div>
                 <div id="formulaireContact">
                     <h2>Fomulaire de contact</h2>
-                    <div className="barreSeparation"></div>
+                    <div className="barreSeparationFormulaire"></div>
                     <div className="containeurChamp">
                         <p>Nom</p>
                         <input type="text" placeholder="Nom" name="" id="" />
@@ -121,12 +119,7 @@ function Home() {
                     </div>
                     <div className="containeurChamp">
                         <p>Numéro de téléphone</p>
-                        <PhoneInput
-                            country={"fr"} // Pays par défaut
-                            value={phone}
-                            onChange={(value) => setPhone(value)}
-                            inputStyle={{ width: "100%", height: "40px" }} // Style optionnel
-                        />
+                        <input type="text" placeholder="ex : 0672838393"/>
                     </div>
                     <div className="containeurChamp">
                         <p>Adresse email</p>
@@ -140,7 +133,7 @@ function Home() {
                         <p>Déscrivez votre problème</p>
                         <textarea name="" id="description" placeholder="Votre message"/>
                     </div>
-                    <a href="politique-de-confidentialité">Politique de confidentialité * - en savoir plus</a>
+                    <a id="politique-de-confidentialite" href="politique-de-confidentialité">Politique de confidentialité * - en savoir plus</a>
                     <div id="containeurCheckbox">
                         <input type="checkbox" name="" id="" />
                         <p>J’ai lu et accepte la politique de confidentialité de ce site</p>
@@ -151,33 +144,27 @@ function Home() {
             <div id="quiSommeNous">
                 <h1>Qui sommes-nous ?</h1>
                 <div id="containeurTextImageQuiSommeNous">
-                    <p>Notre société est spécialisée dans l’acquisition de biens immobiliers complexes : logements squattés, locataires en impayés, biens marqués par un drame ou en indivision conflictuelle. Forts de notre expertise en droit immobilier, en procédures contentieuses et amiables, ainsi qu’en rénovation, nous offrons une solution rapide et sécurisée aux vendeurs. Grâce à nos fonds propres, nous achetons comptant, sans condition suspensive, garantissant une transaction fluide et sans risque. Notre approche allie maîtrise juridique et savoir-faire technique, nous permettant de valoriser ces biens et de leur redonner un second souffle.</p>
+                    <p>Notre société est spécialisée dans l’acquisition de biens immobiliers complexes : <br /><br /> Logements squattés, locataires en impayés, biens marqués par un drame ou en indivision conflictuelle. Forts de notre expertise en droit immobilier, en procédures contentieuses et amiables, ainsi qu’en rénovation.<br /><br /> Nous offrons une solution rapide et sécurisée aux vendeurs. Grâce à nos fonds propres, nous achetons comptant, sans condition suspensive, garantissant une transaction fluide et sans risque.<br /><br /> Notre approche allie maîtrise juridique et savoir-faire technique, nous permettant de valoriser ces biens et de leur redonner un second souffle.</p>
                     <img src="justice.png" alt="" />
                 </div>
             </div>
             <div id="notreSolution">
-                <h1>Rachat de biens squattés</h1>
+                <h1 className="titre-souligne">Rachat de biens squattés</h1>
                 <p>En nous vendant votre bien squatté, vous vous épargnez une longue procédure qui commence par l’expulsion des squatteurs et qui finit par la remise en état d’un bien qui souvent est devenu insalubre.</p>
                 <div id="containeurBlocRachat">
                     <div className="blocRachat">
-                        <div>
-                            <img src="argent.png" alt="" />
-                            <p>Analyse juridique et faisabilité</p>    
-                        </div>
+                        <img src="argent.png" alt="" />
+                        <p className="titreBlocRachat">Analyse juridique et faisabilité</p>   
                         <p className="textBloc">Nous examinons la situation du bien : titre de propriété, occupation sans droit ni titre, existence d’une procédure d’expulsion en cours ou à engager. Cette étape permet d’évaluer les risques et les délais nécessaires pour récupérer la pleine possession du bien.</p>
                     </div>
                     <div className="blocRachat">
-                        <div>
-                            <img src="securise.png" alt="" />
-                            <p>Achat rapide et sécurisé</p>    
-                        </div>
+                        <img src="securise.png" alt="" />
+                        <p className="titreBlocRachat">Achat rapide et sécurisé</p>    
                         <p className="textBloc">Grâce à nos fonds propres, nous achetons comptant et sans condition suspensive. Cette rapidité évite aux vendeurs d’engager de nouvelles procédures coûteuses et incertaines. La vente peut être finalisée en quelques semaines chez le notaire.</p>
                     </div>
                     <div className="blocRachat">
-                        <div>
-                            <img src="gestion.png" alt="" />
-                            <p>Gestion et libération du bien</p>    
-                        </div>
+                        <img src="gestion.png" alt="" />
+                        <p className="titreBlocRachat">Gestion et libération du bien</p> 
                         <p className="textBloc">Après l’achat, nous prenons en charge l’expulsion si nécessaire, en respectant les procédures légales. Nous sécurisons ensuite le bien et engageons les travaux de rénovation pour le remettre sur le marché.</p>
                     </div>
                 </div>
@@ -217,7 +204,6 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div id="containeurFAQ">
             <div id="questionFAQ">
                 <h1>Posez-votre question</h1>
                 <input type="text" placeholder="Nom Prénom" value={nomFAQ} onChange={(e) => setNomFAQ(e.target.value)}/>
@@ -225,10 +211,12 @@ function Home() {
                 <button id="buttonEnvoyer" onClick={envoyerQuestion}>Envoyer</button>
                 {message && <p>{message}</p>} {/* Affichage du message de confirmation ou d'erreur */}
             </div>
+            <div id="containeurFAQ">
                 <div id="FAQ">
-                    <h1>FAQ</h1>
+                    <h1>Vos questions fréquentes</h1>
                     <FAQAccordion data={faqData} />
                 </div>
+                <img src="login.jpg" alt="" />
             </div>
             <footer>
                 <p id="titre">Mission stop squat</p>
