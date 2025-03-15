@@ -30,7 +30,7 @@ function Faq() {
       })
       .catch((error) => console.error("Erreur lors de la récupération des FAQ :", error));
   }, []);
-
+/*
   const handleDelete = (questionId: number) => {
     fetch(`http://127.0.0.1:5000/faq/delete_question/${questionId}`, {
       method: "DELETE",
@@ -50,7 +50,7 @@ function Faq() {
   const handleRepondre = (questionId: number) => {
     navigate(`/faqReponse/${questionId}`);
   };
-
+*/
   const indexOfLastQuestion = currentPage * questionsPerPage;
   const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
   const currentQuestions = questions.slice(indexOfFirstQuestion, indexOfLastQuestion);
