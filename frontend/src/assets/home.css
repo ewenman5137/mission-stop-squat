@@ -466,3 +466,115 @@ footer{
 #designPar{
     text-align: end;
 }
+
+
+
+/* Responsive mobile */
+@media (max-width: 900px) {
+    #containeurNav{
+        display: none;
+    }
+    #home h1{
+        font-size: 1.5rem;
+    }
+    #home p{
+        font-size: 1.2rem;
+    }
+    #containeurButton{
+        width: 80%;
+        margin-top: 5%;
+    }
+
+
+    #containeurInfoFormulaire{
+        flex-direction: column;
+        height: auto;
+    }
+    #containeurExplication{
+        width: 95%;
+    }
+    .chiffre{
+        width: 40px;
+    }
+    .infoChiffre{
+        font-size: 1rem;
+    }
+    #formulaireContact{
+        width: 90%;
+    }
+    #quiSommeNous{
+        height :auto;
+        padding-bottom: 10vh;
+    }
+    #quiSommeNous h1{
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    #containeurTextImageQuiSommeNous{
+        height: auto;
+    }
+    #containeurTextImageQuiSommeNous p{
+        width: 100%;
+    }
+    #containeurTextImageQuiSommeNous img{
+        display: none;
+    }
+
+    #notreSolution{
+        height: auto;
+        padding-bottom: 10vh;
+    }
+
+    #containeurBlocRachat{
+        flex-direction: column;
+        height: auto;
+    }
+    .blocRachat{
+        width: 100%;
+        margin-bottom: 10vh;
+    }
+
+    #nosValeurs{
+        height: auto;
+    }
+    .valeur{
+        width: 90%;
+    }
+
+
+    #questionFAQ h1{
+        font-size: 1.5rem;
+    }
+    #questionFAQ input{
+        width: 80%;
+    }
+    #questionFAQ textarea{
+        width: 80%;
+    }
+    #questionFAQ button{
+        width: 82%;
+    }
+    #containeurFAQ{
+        height: auto;
+    }
+    #containeurFAQ img{
+        display: none;
+    }
+    #FAQ{
+        width: 90%;
+    }
+    #FAQ h1{
+        font-size: 1.5rem;
+    }
+
+    #infoReseaux p{
+        display: none;
+    }
+    #containeurReseaux {
+        justify-content: space-around;
+        width: 100%;
+    }
+    .infoMention{
+        font-size: 0.5rem;
+    }
+}
