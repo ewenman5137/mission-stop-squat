@@ -7,12 +7,12 @@ import "react-phone-input-2/lib/style.css";
   
 function Home() {    
     const [faqData, setFaqData] = useState([]); // État pour stocker les questions
-    const [nomFAQ, setNomFAQ] = useState(""); // Stocke le nom
+    /*const [nomFAQ, setNomFAQ] = useState(""); // Stocke le nom
     const [question, setQuestion] = useState(""); // Stocke la question
-    const [message, setMessage] = useState("");
+    const [message, setMessage] = useState("");*/
     // Fonction pour récupérer les questions depuis l'API
     useEffect(() => {
-        fetch("http://127.0.0.1:5000/faq/get_question") // URL de ton API Flask
+        fetch("https://mission-stop-squat.onrender.com/faq/get_question") // URL de ton API Flask
             .then((response) => response.json()) // Convertir en JSON
             .then((data) => {
                 console.log("Données FAQ reçues :", data); // Debug dans la console
@@ -21,7 +21,7 @@ function Home() {
             .catch((error) => console.error("Erreur lors de la récupération des FAQ :", error));
     }, []);
 
-    const envoyerQuestion = async (e: { preventDefault: () => void; }) => {
+    /*const envoyerQuestion = async (e: { preventDefault: () => void; }) => {
         e.preventDefault(); // Empêche le rechargement de la page
         
         if (!nomFAQ || !question) {
@@ -36,7 +36,7 @@ function Home() {
         };
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/faq/add_question", {
+            const response = await fetch("https://mission-stop-squat.onrender.com/faq/add_question", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -55,7 +55,7 @@ function Home() {
             console.error("Erreur :", error);
             setMessage("❌ Une erreur est survenue.");
         }
-    };
+    };*/
 
     const [isVisible, setIsVisible] = useState(false);
 
