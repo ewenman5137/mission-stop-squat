@@ -9,7 +9,7 @@ function Login() {
 
     // Fonction pour gérer la connexion
     const handleLogin = () => {
-        fetch("https://mission-stop-squat.onrender.com/auth/login", {
+        fetch("http://127.0.0.1:5000/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

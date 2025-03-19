@@ -12,7 +12,7 @@ function Home() {
     const [message, setMessage] = useState("");
     // Fonction pour récupérer les questions depuis l'API
     useEffect(() => {
-        fetch("https://mission-stop-squat.onrender.com/faq/get_question") // URL de ton API Flask
+        fetch("http://127.0.0.1:5000/faq/get_question") // URL de ton API Flask
             .then((response) => response.json()) // Convertir en JSON
             .then((data) => {
                 console.log("Données FAQ reçues :", data); // Debug dans la console
@@ -36,7 +36,7 @@ function Home() {
         };
 
         try {
-            const response = await fetch("https://mission-stop-squat.onrender.com/faq/add_question", {
+            const response = await fetch("http://127.0.0.1:5000/faq/add_question", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -18,7 +18,7 @@ function FaqReponse() {
 
     // Récupérer les détails de la question
     useEffect(() => {
-        fetch(`https://mission-stop-squat.onrender.com/faq/get_question_admin`)
+        fetch(`http://127.0.0.1:5000/faq/get_question_admin`)
             .then((response) => response.json())
             .then((data: Question[]) => {
                 const selectedQuestion = data.find(q => q.id === parseInt(id!));
