@@ -168,10 +168,14 @@ nav div img {
     flex-direction: row;
     width: 80%;
     margin-left: 10%;
+    align-items: center;
     justify-content: space-around;
     margin-top: 5vh;
     height: 100vh;
     padding-bottom: 5%;
+}
+#containeurExplication h2{
+    width: 100%;
 }
 /* Conteneur principal */
 #containeurExplication {
@@ -180,9 +184,7 @@ nav div img {
     justify-content: center;
     width: 50%;
     margin: 0 auto;
-    margin-right: 4%;
     text-align: center;
-    padding: 40px;
   
 }
 
@@ -259,9 +261,9 @@ nav div img {
 
 
 /* Conteneur principal du formulaire */
-.contact-form {
+#contact-form {
     width: 35%;
-    height:93vh;
+    height:95vh;
     background: white;
     padding: 30px;
     border-radius: 15px;
@@ -273,7 +275,7 @@ nav div img {
 }
 
 /* Titre du formulaire */
-.contact-form h2 {
+#contact-form h2 {
     font-size: 1.8rem;
     font-weight: bold;
     color: #333;
@@ -282,14 +284,14 @@ nav div img {
 }
 
 /* Formulaire */
-.contact-form form {
+#contact-form form {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 /* Labels */
-.contact-form label {
+#contact-form label {
     font-size: 0.9rem;
     font-weight: bold;
     color: #444;
@@ -297,8 +299,8 @@ nav div img {
 }
 
 /* Champs de saisie */
-.contact-form input,
-.contact-form textarea {
+.input-from,
+#contact-form textarea {
     width: 90%;
     padding: 12px;
     border-radius: 8px;
@@ -308,14 +310,14 @@ nav div img {
     transition: border 0.3s ease-in-out;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
+#contact-form input:focus,
+#contact-form textarea:focus {
     border-color: #007bff;
     outline: none;
 }
 
 /* Style du textarea */
-.contact-form textarea {
+#contact-form textarea {
     height: 120px;
     resize: none;
 }
@@ -335,7 +337,7 @@ nav div img {
 }
 
 /* Bouton d'envoi */
-.contact-form button {
+#contact-form button {
     width: 100%;
     padding: 12px;
     background: #007bff;
@@ -349,7 +351,7 @@ nav div img {
     margin-top: 10px;
 }
 
-.contact-form button:hover {
+#contact-form button:hover {
     background: #0056b3;
 }
 
@@ -618,6 +620,7 @@ nav div img {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    margin-bottom: 10vh;
 }
 
 /* Apparition progressive au scroll */
@@ -756,7 +759,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #8ba9f0; /* Contour vert */
+    border: 1px solid #8ba9f0; 
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -771,7 +774,6 @@ footer {
 .footer-social img {
     width: 20px;
     height: 20px;
-    filter: invert(75%) sepia(40%) saturate(300%) hue-rotate(90deg);
 }
 
 /* COPYRIGHT */
@@ -822,7 +824,14 @@ footer {
     .infoChiffre{
         font-size: 1rem;
     }
-    #formulaireContact{
+    #contact-form{
+        width: 90%;
+        height: 100%;
+    }
+    .checkbox-container{
+        justify-content: space-between;
+    }
+    .checkbox-container span{
         width: 90%;
     }
     #quiSommeNous{
@@ -863,7 +872,24 @@ footer {
     .valeur{
         width: 90%;
     }
-
+    .about-section{
+        flex-direction: column;
+    }
+    .about-text{
+        width: 90%;
+    }
+    .about-values{
+        width: 100%;
+    }
+    .value-icon {
+        width: 300px;
+        height: 50px;
+        padding: 1%;
+    }
+    .valeurs-container{
+        display: flex;
+        flex-direction: column;
+    }
 
     #questionFAQ h1{
         font-size: 1.5rem;
@@ -879,6 +905,7 @@ footer {
     }
     #containeurFAQ{
         height: auto;
+        padding-bottom: 15%;
     }
     #containeurFAQ img{
         display: none;
@@ -899,5 +926,9 @@ footer {
     }
     .infoMention{
         font-size: 0.5rem;
+    }
+    .chiffre{
+        width: 50px;
+        height: 50px;
     }
 }

@@ -169,19 +169,19 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="contact-form">
+                <div id="contact-form">
                     <h2>Contactez-nous</h2>
                     <form>
                         <label>Nom</label>
-                        <input type="text" placeholder="Votre nom" />
+                        <input className="input-from" type="text" placeholder="Votre nom" />
                         <label>Prénom</label>
-                        <input type="text" placeholder="Votre prénom" />
+                        <input className="input-from" type="text" placeholder="Votre prénom" />
                         <label>Numéro de téléphone</label>
-                        <input type="text" placeholder="Ex : 0672838393" />
+                        <input className="input-from" type="text" placeholder="Ex : 0672838393" />
                         <label>Email</label>
-                        <input type="email" placeholder="Votre email" />
+                        <input className="input-from" type="email" placeholder="Votre email" />
                         <label>Adresse de votre bien</label>
-                        <input type="text" placeholder="Votre adresse" />
+                        <input className="input-from" type="text" placeholder="Votre adresse" />
                         <label>Décrivez votre problème</label>
                         <textarea placeholder="Votre message"></textarea>
                         <div className="checkbox-container">
@@ -286,7 +286,7 @@ function Home() {
                 </div>
 
                 <div className="footer-bottom">
-                    <p>© 2025 Mission Stop Squat | Designé avec ❤️ par <a href="#">MissionStopSquat.com</a></p>
+                    <p>© 2025 Mission Stop Squat <a href="#">MissionStopSquat.com</a></p>
                 </div>
             </footer>
 
