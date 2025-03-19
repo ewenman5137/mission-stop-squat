@@ -23,7 +23,7 @@ function Faq() {
   }, [navigate]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/faq/get_question_admin")
+    fetch("https://mission-stop-squat.onrender.com/faq/get_question_admin")
       .then((response) => response.json())
       .then((data: Question[]) => {
         setQuestions(data);

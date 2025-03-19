@@ -22,7 +22,7 @@ function Chatbot() {
 
     // Fonction pour récupérer le contenu du chatbot depuis l'API
     const fetchContenu = () => {
-        fetch("http://127.0.0.1:5000/chatbot")  
+        fetch("https://mission-stop-squat.onrender.com/chatbot")  
             .then((response) => response.json())
             .then((data) => {
                 if (data.contenu) {
@@ -40,7 +40,7 @@ function Chatbot() {
 
     // Fonction pour enregistrer les modifications
     const handleSave = () => {
-        fetch("http://127.0.0.1:5000/chatbot/update", {
+        fetch("https://mission-stop-squat.onrender.com/chatbot/update", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
