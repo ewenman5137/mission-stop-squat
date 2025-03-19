@@ -57,6 +57,70 @@ function Home() {
         }
     };
 
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const section = document.querySelector(".about-section");
+            if (section) {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight - 100) {
+                    setIsVisible(true);
+                }
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Vérifie au chargement
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const [isVisibleValue, setIsVisibleValue] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const section = document.querySelector(".valeurs-section");
+            if (section) {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight - 100) {
+                    setIsVisibleValue(true);
+                }
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Vérifie au chargement
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const [isVisibleFAQ, setIsVisibleFAQ] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const section = document.querySelector("#containeurFAQ");
+            if (section) {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight - 100) {
+                    setIsVisibleFAQ(true);
+                }
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Vérifie au chargement
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+
     return (
         <>
         <div>
@@ -64,7 +128,6 @@ function Home() {
                 <nav>
                     <div id="blocGauche">
                         <img src="/logo.png" alt="" />
-                        <h1>Mission Stop Squat</h1>
                     </div>
                     <div id="blocDroit">
                         <a href="#home">Home</a>
@@ -106,112 +169,100 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div id="formulaireContact">
-                    <h2>Fomulaire de contact</h2>
-                    <div className="barreSeparationFormulaire"></div>
-                    <div className="containeurChamp">
-                        <p>Nom</p>
-                        <input type="text" placeholder="Nom" name="" id="" />
-                    </div>
-                    <div className="containeurChamp">
-                        <p>Prénom</p>
-                        <input type="text" name="" placeholder="Prénom" id="" />
-                    </div>
-                    <div className="containeurChamp">
-                        <p>Numéro de téléphone</p>
-                        <input type="text" placeholder="ex : 0672838393"/>
-                    </div>
-                    <div className="containeurChamp">
-                        <p>Adresse email</p>
-                        <input type="text" name="" id="" placeholder="Email" />
-                    </div>
-                    <div className="containeurChamp">
-                        <p>Adresse de votre bien</p>
-                        <input type="text" name="" id="" placeholder="Adresse" />
-                    </div>
-                    <div className="containeurChamp">
-                        <p>Déscrivez votre problème</p>
-                        <textarea name="" id="description" placeholder="Votre message"/>
-                    </div>
-                    <a id="politique-de-confidentialite" href="politique-de-confidentialité">Politique de confidentialité * - en savoir plus</a>
-                    <div id="containeurCheckbox">
-                        <input type="checkbox" name="" id="" />
-                        <p>J’ai lu et accepte la politique de confidentialité de ce site</p>
-                    </div>
-                    <button className="buttonEnvoyer">Envoyer</button>
+                <div className="contact-form">
+                    <h2>Contactez-nous</h2>
+                    <form>
+                        <label>Nom</label>
+                        <input type="text" placeholder="Votre nom" />
+                        <label>Prénom</label>
+                        <input type="text" placeholder="Votre prénom" />
+                        <label>Numéro de téléphone</label>
+                        <input type="text" placeholder="Ex : 0672838393" />
+                        <label>Email</label>
+                        <input type="email" placeholder="Votre email" />
+                        <label>Adresse de votre bien</label>
+                        <input type="text" placeholder="Votre adresse" />
+                        <label>Décrivez votre problème</label>
+                        <textarea placeholder="Votre message"></textarea>
+                        <div className="checkbox-container">
+                            <input type="checkbox" />
+                            <span>J'accepte la politique de confidentialité</span>
+                        </div>
+                        <button type="submit">Envoyer</button>
+                    </form>
                 </div>
+
             </div>
-            <div id="quiSommeNous">
-                <h1>Qui sommes-nous ?</h1>
-                <div id="containeurTextImageQuiSommeNous">
+            
+            <section className={`about-section ${isVisible ? "visible" : ""}`}>
+                <div className="about-text">
+                    <h2>À propos</h2>
                     <p>Notre société est spécialisée dans l’acquisition de biens immobiliers complexes : <br /><br /> Logements squattés, locataires en impayés, biens marqués par un drame ou en indivision conflictuelle. Forts de notre expertise en droit immobilier, en procédures contentieuses et amiables, ainsi qu’en rénovation.<br /><br /> Nous offrons une solution rapide et sécurisée aux vendeurs. Grâce à nos fonds propres, nous achetons comptant, sans condition suspensive, garantissant une transaction fluide et sans risque.<br /><br /> Notre approche allie maîtrise juridique et savoir-faire technique, nous permettant de valoriser ces biens et de leur redonner un second souffle.</p>
-                    <img src="justice.png" alt="" />
                 </div>
-            </div>
-            <div id="notreSolution">
-                <h1 className="titre-souligne">Rachat de biens squattés</h1>
-                <p>En nous vendant votre bien squatté, vous vous épargnez une longue procédure qui commence par l’expulsion des squatteurs et qui finit par la remise en état d’un bien qui souvent est devenu insalubre.</p>
-                <div id="containeurBlocRachat">
-                    <div className="blocRachat">
-                        <img src="argent.png" alt="" />
-                        <p className="titreBlocRachat">Analyse juridique et faisabilité</p>   
-                        <p className="textBloc">Nous examinons la situation du bien : titre de propriété, occupation sans droit ni titre, existence d’une procédure d’expulsion en cours ou à engager. Cette étape permet d’évaluer les risques et les délais nécessaires pour récupérer la pleine possession du bien.</p>
+
+                <div className="about-values">
+                    <div className="about-value">
+                        <div className="value-icon">
+                            <img src="loupe.png" alt="Recherche"/>
+                        </div>
+                        <div className="value-text">
+                            <h3>Analyse juridique et faisabilité</h3>
+                            <p>Nous examinons la situation du bien : titre de propriété, occupation sans droit ni titre, existence d’une procédure d’expulsion en cours ou à engager. Cette étape permet d’évaluer les risques et les délais nécessaires pour récupérer la pleine possession du bien.</p>
+                        </div>
                     </div>
-                    <div className="blocRachat">
-                        <img src="securise.png" alt="" />
-                        <p className="titreBlocRachat">Achat rapide et sécurisé</p>    
-                        <p className="textBloc">Grâce à nos fonds propres, nous achetons comptant et sans condition suspensive. Cette rapidité évite aux vendeurs d’engager de nouvelles procédures coûteuses et incertaines. La vente peut être finalisée en quelques semaines chez le notaire.</p>
+
+                    <div className="about-value">
+                        <div className="value-icon">
+                            <img src="buy-home.png" alt="Stratégie"/>
+                        </div>
+                        <div className="value-text">
+                            <h3>Achat rapide et sécurisé</h3>
+                            <p>Grâce à nos fonds propres, nous achetons comptant et sans condition suspensive. Cette rapidité évite aux vendeurs d’engager de nouvelles procédures coûteuses et incertaines. La vente peut être finalisée en quelques semaines chez le notaire.</p>
+                        </div>
                     </div>
-                    <div className="blocRachat">
-                        <img src="gestion.png" alt="" />
-                        <p className="titreBlocRachat">Gestion et libération du bien</p> 
-                        <p className="textBloc">Après l’achat, nous prenons en charge l’expulsion si nécessaire, en respectant les procédures légales. Nous sécurisons ensuite le bien et engageons les travaux de rénovation pour le remettre sur le marché.</p>
-                    </div>
-                </div>
-            </div>
-            <div id="nosValeurs">
-                <h1>Nos valeurs</h1>
-                <div id="containeurNosValeurs">
-                    <div className="valeur">
-                        <img src="argent.png" alt="" />
-                        <h2>Solution fiable</h2>
-                        <p>Nous payons comptant, nos accords d’achat sont sans clause suspensive de financement ou de situation.</p>
-                    </div>
-                    <div className="valeur">
-                        <img src="argent.png" alt="" />
-                        <h2>Solution humaine</h2>
-                        <p>Si nous intervenons dans le respect du droit, notre solution repose sur le dialogue et l’accompagnement.</p>
-                    </div>
-                    <div className="valeur">
-                        <img src="argent.png" alt="" />
-                        <h2>Solution équitable</h2>
-                        <p>Nous évaluons votre bien en fonction de sa situation juridique et technique.</p>
-                    </div>
-                    <div className="valeur">
-                        <img src="argent.png" alt="" />
-                        <h2>Solution rapide</h2>
-                        <p>En devenant le nouveau propriétaire de votre bien, nous vous libérons de la situation complexe qui vous rend la vie impossible.</p>
-                    </div>
-                    <div className="valeur">
-                        <img src="argent.png" alt="" />
-                        <h2>Solution sûre</h2>
-                        <p>Nous vous exonérons de toutes les responsabilités et incertitudes des procédures judiciaires en devenant propriétaire de votre bien.</p>
-                    </div>
-                    <div className="valeur">
-                        <img src="argent.png" alt="" />
-                        <h2>Solution sereine</h2>
-                        <p>Nous vous accompagnons dans l’ensemble de vos démarches grâce à notre équipe et nos partenaires avocats, notaires et huissiers.</p>
+
+                    <div className="about-value">
+                        <div className="value-icon">
+                            <img src="signature.png" alt="Conception"/>
+                        </div>
+                        <div className="value-text">
+                            <h3>Gestion et libération du bien</h3>
+                            <p>Après l’achat, nous prenons en charge l’expulsion si nécessaire, en respectant les procédures légales. Nous sécurisons ensuite le bien et engageons les travaux de rénovation pour le remettre sur le marché.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="questionFAQ">
-                <h1>Posez-votre question</h1>
-                <input type="text" placeholder="Nom Prénom" value={nomFAQ} onChange={(e) => setNomFAQ(e.target.value)}/>
-                <textarea placeholder="Votre question" value={question} onChange={(e) => setQuestion(e.target.value)}/>
-                <button id="buttonEnvoyer" onClick={envoyerQuestion}>Envoyer</button>
-                {message && <p>{message}</p>} {/* Affichage du message de confirmation ou d'erreur */}
-            </div>
-            <div id="containeurFAQ">
+            </section>
+
+
+            <section className={`valeurs-section ${isVisibleValue ? "visible" : ""}`} id="nosValeurs">
+                <h2 className="valeurs-title">
+                    Nous rachetons votre bien squatté <br />
+                    avec des solutions <span className="highlight">fiables, humaines et sereines.</span>
+                </h2>
+
+                <div className="valeurs-container">
+                    {[
+                        { icon: "verified.png", title: "Solution fiable", text: "Nous mettons en place des solutions éprouvées, basées sur une expertise juridique solide et une parfaite connaissance des procédures en vigueur." },
+                        { icon: "partnership.png", title: "Solution humaine", text: "Chaque situation de squat est unique, et nous l’abordons avec discernement et empathie. Nous privilégions le dialogue et la médiation pour une solution respectueuse." },
+                        { icon: "argent.png", title: "Solution équitable", text: "Nous évaluons chaque bien squatté objectivement, en tenant compte de sa valeur réelle et de sa situation juridique. Nos offres sont transparentes et adaptées." },
+                        { icon: "flash.png", title: "Solution rapide", text: "Le temps est clé face à l’occupation illégale. Grâce à nos procédures optimisées et notre réseau d’experts, nous intervenons rapidement pour vous libérer." },
+                        { icon: "security.png", title: "Solution sûre", text: "Nous opérons exclusivement dans le cadre légal avec l’appui de juristes et de professionnels spécialisés. Vous êtes assuré d’une transaction sécurisée et sans risques." },
+                        { icon: "lotus.png", title: "Solution sereine", text: "Face aux démarches administratives complexes et aux incertitudes liées à l’occupation illégale, nous prenons tout en charge pour vous." },
+                    ].map((valeur, index) => (
+                        <div className="valeur" key={index}>
+                            <div className="valeur-icon-container">
+                                <img src={valeur.icon} alt="check" className="valeur-icon" />
+                            </div>
+                            <div>
+                                <h3>{valeur.title}</h3>
+                                <p>{valeur.text}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <div id="containeurFAQ" className={isVisibleFAQ ? "visible" : ""}>
                 <div id="FAQ">
                     <h1>Vos questions fréquentes</h1>
                     <FAQAccordion data={faqData} />
@@ -219,22 +270,26 @@ function Home() {
                 <img src="login.jpg" alt="" />
             </div>
             <footer>
-                <p id="titre">Mission stop squat</p>
-                <div id="infoReseaux">
-                    <p>Nous sommes la société suivante <a href="mission-stop-squat.com">Mission-stop-squat.com</a></p>
-                    <div id="containeurReseaux">
-                        <a href=""><img src="facebook.png" alt="" /></a>
-                        <a href=""><img src="whatsapp.png" alt="" /></a>
-                        <a href=""><img src="instagram.png" alt="" /></a>
-                    </div>
+                <div className="footer-title">Mission Stop Squat</div>
+
+                <div className="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#services">Notre solution</a>
+                    <a href="#about">Qui somme-nous ?</a>
+                    <a href="#blog">Nos valeurs</a>
                 </div>
-                <div className="barreSeparation"></div>
-                <div id="containeurInfoMentions">
-                    <p className="infoMention">© 2025 Mission Stop Squat</p>
-                    <a className="infoMention" id="mentionsLegal" href="/mentions">Mentions légales</a>
-                    <p className="infoMention" id="designPar">Designé par Ewen Buhot et Johanne Vigouroux</p>
+
+                <div className="footer-social">
+                    <a href="#"><img src="facebook.png" alt="Facebook" /></a>
+                    <a href="#"><img src="whatsapp.png" alt="Twitter" /></a>
+                    <a href="#"><img src="instagram.png" alt="Instagram" /></a>
+                </div>
+
+                <div className="footer-bottom">
+                    <p>© 2025 Mission Stop Squat | Designé avec ❤️ par <a href="#">MissionStopSquat.com</a></p>
                 </div>
             </footer>
+
         </div>
         </>
     );

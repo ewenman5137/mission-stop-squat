@@ -1,18 +1,28 @@
 body{
     padding: 0;
     margin: 0;
+    font-family: "Arial", sans-serif;
 }
 
-#containeurNav{
+
+
+#containeurNav {
     z-index: 10;
     margin-top: 0;
     position: fixed;
     width: 96%;
+    height: 10vh;
+    background: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
+    backdrop-filter: blur(10px); /* Effet de flou pour un rendu moderne */
     padding-left: 2%;
     padding-right: 2%;
-    height: 10vh;
-    background-color: #333333;
+    transition: background 0.3s ease-in-out;
 }
+
+#containeurNav:hover {
+    background: rgba(0, 0, 0, 0.7); /* Augmente l'opacité au survol pour plus de lisibilité */
+}
+
 a{
     color: white;
     text-decoration: none;
@@ -26,34 +36,76 @@ a:hover{
 .btnHome:hover{
     transform: scale(1.1);
 }
-nav{
+nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     color: white;
 }
-nav div{
+
+/* GESTION DES LOGOS ET TEXTES */
+nav div {
     display: flex;
 }
-nav div img{
+
+nav div img {
     height: 10vh;
     aspect-ratio: 1/1;
     object-fit: contain;
 }
-#blocGauche{
+
+/* CONTENEUR GAUCHE */
+#blocGauche {
     display: flex;
     width: 22%;
     justify-content: space-between;
     align-items: center;
 }
-#blocDroit{
+
+/* CONTENEUR DROIT */
+#blocDroit {
     display: flex;
-    width: 50%;
-    justify-content: space-between;
+    width: 75%;
+    justify-content:space-around;
     font-size: 1.1rem;
     margin-right: 5%;
 }
+
+/* STYLE DES LIENS */
+#blocDroit a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* EFFET DE SOULIGNEMENT MODERNE */
+#blocDroit a::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color:whitesmoke;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+#blocDroit a:hover {
+    color: whitesmoke;
+    transform: scale(1.05);
+}
+
+#blocDroit a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
 
 #header{
     height: 100vh;
@@ -71,8 +123,7 @@ nav div img{
     align-items: center;
     height: 100%;
     color: white;
-    
-    background-color: rgba(20, 20, 20, 0.4);
+    background-color: rgba(20, 20, 20, 0.25);
 }
 
 #home h1{
@@ -90,7 +141,7 @@ nav div img{
 }
 
 #contactezNous{
-    background-color: #1B5787;
+    background-color: #007bff;
     padding: 5%;
     border-radius: 100px;
     text-decoration: none;
@@ -110,6 +161,8 @@ nav div img{
     background-color: rgba(255, 255, 255, 0.205);
 }
 
+/* formulaire + comment ça fonctionne*/
+
 #containeurInfoFormulaire{
     display: flex;
     flex-direction: row;
@@ -117,255 +170,503 @@ nav div img{
     margin-left: 10%;
     justify-content: space-around;
     margin-top: 5vh;
-    height: 80vh;
+    height: 100vh;
     padding-bottom: 5%;
 }
-#containeurExplication{
+/* Conteneur principal */
+#containeurExplication {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 40%;
-    margin-right: 10%;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    margin-right: 4%;
+    text-align: center;
+    padding: 40px;
+  
 }
 
-#containeurExplication h2{
+/* Titre principal */
+#containeurExplication h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Description */
+#descriptionExplication {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Section "Comment cela fonctionne" */
+#containeurCommentCelaFonctionne {
+    text-align: left;
+}
+
+/* Étape */
+.etape {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Effet au survol */
+.etape:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Chiffre dans un cercle */
+.chiffre {
+    color: #ff9800;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 3px solid #ff9800;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Effet au survol du chiffre */
+.etape:hover .chiffre {
+    background: #ff9800;
+    color: white;
+}
+
+/* Texte de l'étape */
+.infoChiffre {
+    flex: 1;
+    font-size: 1.1rem;
+    color: #444;
     font-weight: 500;
 }
-#containeurExplication #descriptionExplication{
-    margin-top: 5vh;
-    color: rgb(141, 141, 141);
-}
-#containeurCommentCelaFonctionne{
-    color: black;
-}
-.etape{
+
+
+
+
+/* Conteneur principal du formulaire */
+.contact-form {
+    width: 35%;
+    height:93vh;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
+    font-family: "Arial", sans-serif;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 15px;
 }
-.chiffre{
-    color: orange;
-    font-size: 2rem;
-    border: 2px solid orange;
-    width: 10%;
-    border-radius: 100%;
-    max-width: 50px;
-    max-height: 50px;
-    aspect-ratio: 1/1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+/* Titre du formulaire */
+.contact-form h2 {
+    font-size: 1.8rem;
     font-weight: bold;
-}
-.infoChiffre{
-    margin-top: 5%;
-    width: 80%;
-    color: rgb(141, 141, 141);
-    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
-#formulaireContact{
-    border: 1px solid rgba(93, 93, 93, 0.42);
-    padding: 1% 2% 2% 2%;
-    border-radius: 20px;
-    width: 30%;
-    height: 100%;
-    color: black;
+/* Formulaire */
+.contact-form form {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+}
+
+/* Labels */
+.contact-form label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+/* Champs de saisie */
+.contact-form input,
+.contact-form textarea {
+    width: 90%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 0.8rem;
+    background-color: #f8f8f8;
+    transition: border 0.3s ease-in-out;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Style du textarea */
+.contact-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+/* Checkbox container */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.checkbox-container input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Bouton d'envoi */
+.contact-form button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+.contact-form button:hover {
+    background: #0056b3;
+}
+
+/*à propos*/
+
+.about-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.about-section {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 0;
 }
-.barreSeparationFormulaire{
-    margin-top: -2vh;
-    border: 0.5px solid rgba(93, 93, 93, 0.42);
-    width: 100%;
+
+.about-section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
-.containeurChamp{
+
+/* Texte principal */
+.about-text {
+    font-family: "Arial", sans-serif;
+    width: 50%;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 8vh;
+}
+
+/* Conteneur des valeurs à droite */
+.about-values {
+    width: 45%;
+}
+
+/* Style des éléments individuels */
+.about-value {
     display: flex;
-    flex-direction: column;
-    margin-top: 0.5vh;
+    align-items: center;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-.containeurChamp p{
-    margin-bottom: 10px;
-    margin-top: 2%;
+
+.about-section.visible .about-value {
+    opacity: 1;
+    transform: translateX(0);
 }
-.containeurChamp input{
-    margin-top: -1%;
-    height: 3vh;
-    padding: 1%;
-    padding-left: 2%;
-    border-radius: 5px;
-    border: 1px solid rgba(93, 93, 93, 0.42);
-}
-#description{
-    height: 5vh;
-    border-radius: 5px;
-}
-#containeurCheckbox{
-    display: flex;
-}
-#containeurCheckbox p{
-    font-size: 0.8rem;
-    margin-bottom: 1vh;
-}
-#politique-de-confidentialite{
-    color: black;
-    font-size: 0.8rem;
-    margin-top: 2vh;
-}
-.buttonEnvoyer{
-    color: black;
-    padding: 5%;
-    width: 100%;
-    height: 5%;
+
+/* Icône entourée d'un cercle */
+.value-icon {
+    width: 210px;
+    height: 55px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%; /* Assure la forme ronde */
     display: flex;
     align-items: center;
     justify-content: center;
-    border: none;
-    border-radius: 5px;
+    font-size: 2rem;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-right: 40px;
 }
 
-
-
-
-#quiSommeNous{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    padding-right: 10%;
-    padding-left: 10%;
-    margin-top: 2%;
-    background-color: #F6F7FD  ;
-    height: 50vh;
+.value-icon img {
+    width: 40px; /* Taille ajustée de l'icône */
+    height: 40px;
 }
-#containeurTextImageQuiSommeNous{
+
+/* Texte des valeurs */
+.value-text h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.value-text p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Conteneur principal */
+.section-a-propos {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 25vh;
-    margin-top: 5vh;
-}
-#containeurTextImageQuiSommeNous p{
-    font-size: 1.2rem;
-    width: 60%;
-}
-#containeurTextImageQuiSommeNous img{
-    height: 100%;
+    padding: 5rem 10%;
 }
 
-#notreSolution{
+/* Bloc de texte */
+.text-container {
+    width: 50%;
+    background-color: #f5f5f5;
+    padding: 3rem;
+    border-radius: 10px;
+}
+
+/* Bloc des éléments à droite */
+.info-container {
+    width: 40%;
+}
+
+/* Élément individuel avec icône */
+.info-item {
     display: flex;
-    background-color: #333333;
-    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+/* Style de l'icône */
+.info-item .icon {
+    width: 80px;
+    height: 80px;
+    background-color: #007bff;
     color: white;
-    width:80%;
-    padding: 0% 10%;
-    height: 90vh;
-    padding-top: 10vh;
-}
-.titre-image {
-    position: relative;
-    display: inline-block;
-}
-
-.titre-image::after {
-    content: '';
-    position: absolute;
-    bottom: -10px; /* ajuste la position verticale selon ton besoin */
-    left: 0;
-    width: 100%; /* largeur du trait */
-    height: 10px; /* hauteur du trait selon ton image */
-    background-image: url('chemin/vers/ton-image.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-
-#containeurBlocRachat{
+    border-radius: 50%;
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 2%;
-    height: 70%;
-}
-.blocRachat{
-    display: flex;
-    flex-direction: column;
-    background-color: #284360;
     align-items: center;
-    width: 23%;
-    padding: 2%;
-    height: 80%;
-    font-size: 1.1rem;
-}
-.blocRachat div{
-    display: flex;
-    width: 100%;
-    height: 20%;
-    align-items: center;
-    font-size: 1.1rem;
+    justify-content: center;
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.blocRachat img{
-    width: 20%;
+/* Texte des éléments */
+.info-text h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.info-text p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+
+/* SECTION VALEURS */
+.valeurs-section {
+    text-align: center;
+    padding: 60px 5%;
+    font-family: "Arial", sans-serif;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Quand la section devient visible */
+.valeurs-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.valeurs-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.valeurs-section.visible .valeurs-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.valeurs-title .highlight {
+    color: #007bff; /* Bleu pour mettre en valeur */
+}
+
+/* CONTAINER DES VALEURS */
+.valeurs-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Trois colonnes */
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ÉLÉMENT INDIVIDUEL DE VALEUR */
+.valeur {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    gap: 15px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Affichage progressif des valeurs */
+.valeurs-section.visible .valeur {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Conteneur circulaire pour l'icône */
+.valeur-icon-container {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.valeurs-section.visible .valeur-icon-container {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Ajustement de l'image */
+.valeur-icon {
+    width: 25px;
+    height: 25px;
+    filter: brightness(0) invert(1);
     object-fit: contain;
 }
-.titreBlocRachat{
+
+/* Texte des valeurs */
+.valeur h3 {
+    font-size: 18px;
     font-weight: bold;
-}
-.textBloc{
-    width: 96%;
+    margin-bottom: 5px;
 }
 
-#nosValeurs{
+.valeur p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+}
+
+
+/* CONTENEUR PRINCIPAL */
+#containeurFAQ {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 96%;
-    height: 100vh;
-    margin-left: 1%;
-    margin-right: 1%;
-    margin-top: 5vh;
-}
-#containeurNosValeurs{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.valeur{
-    width: 25%;
-    margin-top: 5vh;
-    margin-left: 3%;
-    padding: 2%;
-    border-radius: 5px;
-}
-.valeur img{
-    background-color: #1b56877c;
-    padding: 2%;
-    border-radius: 100%;
-    height: 10%;
-}
-.valeur h2{
-    font-weight: 400;
-}
-
-
-
-#questionFAQ {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
     height: 80vh;
-    background-color: #284360;
-    color: white;
+    justify-content: space-around;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
+/* Apparition progressive au scroll */
+#containeurFAQ.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
+/* SECTION FAQ */
+#FAQ {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+}
+
+#containeurFAQ.visible #FAQ {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ANIMATION IMAGE (Apparition en slide-in) */
+#containeurFAQ img {
+    width: 40%;
+    height: 80%;
+    object-fit: contain;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease-out 0.5s, transform 0.8s ease-out 0.5s;
+}
+
+#containeurFAQ.visible img {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* STYLISATION DU TITRE */
+#FAQ h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* ANIMATION DES INPUTS & TEXTAREA */
 #questionFAQ input,
 #questionFAQ textarea {
     width: 50%;
@@ -374,21 +675,19 @@ nav div img{
     border: 1px solid #ccc;
     border-radius: 6px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    transition: border 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 #questionFAQ input:focus,
 #questionFAQ textarea:focus {
     border-color: #007bff;
     outline: none;
-} 
-
-#questionFAQ textarea {
-    resize: none;
-    height: 15vh;
+    box-shadow: 0px 2px 10px rgba(0, 123, 255, 0.4);
 }
-#buttonEnvoyer{
-    background-color: #333333;
+
+/* BOUTON ENVOYER AVEC ANIMATION */
+#buttonEnvoyer {
+    background-color: #007bff;
     color: white;
     width: 52%;
     height: 10%;
@@ -398,75 +697,99 @@ nav div img{
     border: none;
     border-radius: 5px;
     padding: 1%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease-in-out;
 }
 
-#containeurFAQ{
-    display: flex;
-    height: 80vh;
-    justify-content: space-around;
-    align-items: center;
-}
-
-#FAQ{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 45%;
-}
-
-#containeurFAQ img{
-    width: 40%;
-    height: 80%;
-    object-fit:contain;
+#buttonEnvoyer:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 
-footer{
-    background-color: #284360;
+
+/* FOOTER STYLÉ COMME COLORLIB */
+footer {
+    background-color: #111; /* Noir profond */
     color: white;
-    padding: 1% 5%;
-    width: 90%;
-}
-#titreMission{
-    font-size: 1.1rem;
-    margin-bottom: -0.5vh;
-}
-#infoReseaux{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.1rem;
-}
-#containeurReseaux{
-    display: flex;
-    justify-content: space-between;
-    width: 10%;
-}
-#containeurReseaux img{
-    height: 3vh;
-}
-.barreSeparation{
-    border: 1px rgba(255, 255, 255, 0.25) solid;
-}
-#containeurInfoMentions{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-}
-.infoMention{
-    width: 33%;
-}
-#mentionsLegal{
+    padding: 25px 7%;
+    font-family: "Arial", sans-serif;
     text-align: center;
 }
-#designPar{
-    text-align: end;
+
+/* TITRE */
+.footer-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
+/* NAVIGATION */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: rgba(203, 195, 195, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: #6188e3; /* Vert subtil */
+}
+
+/* RÉSEAUX SOCIAUX */
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #8ba9f0; /* Contour vert */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.footer-social a:hover {
+    background: #007bff;
+    transform: scale(1.1);
+}
+
+.footer-social img {
+    width: 20px;
+    height: 20px;
+    filter: invert(75%) sepia(40%) saturate(300%) hue-rotate(90deg);
+}
+
+/* COPYRIGHT */
+.footer-bottom {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-bottom a {
+    color: #6188e3;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-bottom a:hover {
+    color: #103384;
+}
 
 
 /* Responsive mobile */
