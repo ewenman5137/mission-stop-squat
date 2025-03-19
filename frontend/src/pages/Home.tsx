@@ -131,9 +131,8 @@ function Home() {
                     </div>
                     <div id="blocDroit">
                         <a href="#home">Home</a>
-                        <a href="#quiSommeNous">Qui sommes nous ?</a>
-                        <a href="#notreSolution">Notre solution</a>
-                        <a href="#nosValeurs">Nos valeurs</a>
+                        <a href="#aPropos">Qui sommes nous ?</a>
+                        <a href="#nosValeurs">Notre solution</a>
                     </div>
                 </nav>
             </div>
@@ -142,8 +141,8 @@ function Home() {
                     <h1>Votre logement est squatté ?</h1>
                     <p>Nous avons la solution.</p>
                     <div id="containeurButton">
-                        <a href="#formulaireContact" className="btnHome" id="contactezNous">Contactez-nous</a>
-                        <a href="#formulaireContact" className="btnHome" id="enSavoir">En savoir +</a>
+                        <a href="#contact-form" className="btnHome" id="contactezNous">Contactez-nous</a>
+                        <a href="#contact-form" className="btnHome" id="enSavoir">En savoir +</a>
                     </div>
                 </div>
             </div>
@@ -194,7 +193,7 @@ function Home() {
 
             </div>
             
-            <section className={`about-section ${isVisible ? "visible" : ""}`}>
+            <section id="aPropos" className={`about-section ${isVisible ? "visible" : ""}`}>
                 <div className="about-text">
                     <h2>À propos</h2>
                     <p>Notre société est spécialisée dans l’acquisition de biens immobiliers complexes : <br /><br /> Logements squattés, locataires en impayés, biens marqués par un drame ou en indivision conflictuelle. Forts de notre expertise en droit immobilier, en procédures contentieuses et amiables, ainsi qu’en rénovation.<br /><br /> Nous offrons une solution rapide et sécurisée aux vendeurs. Grâce à nos fonds propres, nous achetons comptant, sans condition suspensive, garantissant une transaction fluide et sans risque.<br /><br /> Notre approche allie maîtrise juridique et savoir-faire technique, nous permettant de valoriser ces biens et de leur redonner un second souffle.</p>
