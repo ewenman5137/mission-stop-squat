@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../assets/home.css"
 import FAQAccordion from "../composant/FAQAccordion";
+import Chatbot from "../composant/ChatBot";
 import "react-phone-input-2/lib/style.css";
 
 
@@ -131,7 +132,7 @@ function Home() {
                     </div>
                     <div id="blocDroit">
                         <a href="#home">Home</a>
-                        <a href="#aPropos">Qui sommes nous ?</a>
+                        <a href="#a-propos">Qui sommes nous ?</a>
                         <a href="#nosValeurs">Notre solution</a>
                     </div>
                 </nav>
@@ -146,6 +147,7 @@ function Home() {
                     </div>
                 </div>
             </div>
+            <Chatbot/>
             <div id="containeurInfoFormulaire">
                 <div id="containeurExplication">
                     <div>
@@ -193,7 +195,7 @@ function Home() {
 
             </div>
             
-            <section id="aPropos" className={`about-section ${isVisible ? "visible" : ""}`}>
+            <section id="a-propos" className={`about-section ${isVisible ? "visible" : ""}`}>
                 <div className="about-text">
                     <h2>À propos</h2>
                     <p>Notre société est spécialisée dans l’acquisition de biens immobiliers complexes : <br /><br /> Logements squattés, locataires en impayés, biens marqués par un drame ou en indivision conflictuelle. Forts de notre expertise en droit immobilier, en procédures contentieuses et amiables, ainsi qu’en rénovation.<br /><br /> Nous offrons une solution rapide et sécurisée aux vendeurs. Grâce à nos fonds propres, nous achetons comptant, sans condition suspensive, garantissant une transaction fluide et sans risque.<br /><br /> Notre approche allie maîtrise juridique et savoir-faire technique, nous permettant de valoriser ces biens et de leur redonner un second souffle.</p>
@@ -273,9 +275,8 @@ function Home() {
 
                 <div className="footer-links">
                     <a href="#home">Home</a>
-                    <a href="#services">Notre solution</a>
-                    <a href="#about">Qui somme-nous ?</a>
-                    <a href="#blog">Nos valeurs</a>
+                    <a href="#a-propos">Qui somme-nous ?</a>
+                    <a href="#nosValeurs">Nos valeurs</a>
                 </div>
 
                 <div className="footer-social">

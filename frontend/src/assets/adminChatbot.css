@@ -1,0 +1,30 @@
+#chatbot{
+    display: flex;
+    height: 100vh;
+}
+#containeurInfo{
+    width: 70%;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+textarea{
+    width: 100%;
+    height: 80%;
+}
+#containeurBtn{
+    display: flex;
+    justify-content: center;
+}
+#containeurBtn button{
+    padding: 1% 4%;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+#btnAnnuler{
+    margin-right: 10%;
+    background-color:#133a6274;
+}
+#btnEnregistrer{
+    background-color: #133b62;
+}

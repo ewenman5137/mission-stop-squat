@@ -30,27 +30,12 @@ function Faq() {
       })
       .catch((error) => console.error("Erreur lors de la récupération des FAQ :", error));
   }, []);
-/*
-  const handleDelete = (questionId: number) => {
-    fetch(`http://127.0.0.1:5000/faq/delete_question/${questionId}`, {
-      method: "DELETE",
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Erreur lors de la suppression");
-        }
-        return response.json();
-      })
-      .then(() => {
-        setQuestions(questions.filter((q) => q.id !== questionId));
-      })
-      .catch((error) => console.error("Erreur :", error));
-  };
 
   const handleRepondre = (questionId: number) => {
     navigate(`/faqReponse/${questionId}`);
+    console.log(`Redirection vers la réponse de la question ID: ${questionId}`);
   };
-*/
+
   const indexOfLastQuestion = currentPage * questionsPerPage;
   const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
   const currentQuestions = questions.slice(indexOfFirstQuestion, indexOfLastQuestion);
@@ -87,7 +72,7 @@ function Faq() {
                     <button className="btnSup">
                       Supprimer
                     </button>
-                    <button className="btnRepondre">
+                    <button className="btnRepondre" onClick={() => handleRepondre(question.id)}>
                       Répondre
                     </button>
                   </div>
