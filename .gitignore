@@ -1,0 +1,13 @@
+*.pyc
+*.pyc
+*.py
+*.py
+/backend/app/models/__pycache__
+/backend
+backend/app/models/__pycache__/models.cpython-310.pyc
+/backend
+/backend/mon_env
+/backend/mon_env/Lib/site-packages
+/backend/mon_env/*
+*.py
+*.pyc
