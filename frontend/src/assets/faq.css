@@ -1,75 +1,139 @@
+/* Styles pour la page FAQ */
 
-#faq{
+
+#faq {
     display: flex;
+    flex-direction: row;
+    background: white;
     height: 100vh;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
-#containeurCarteBtn{
-    width: 80%;
-    height: 100%;
+
+#containeurCarteBtn {
+    width: 70%;
+    margin-left: 5%;
+    height: 80%;
+    margin-top: 15vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#containeurQuestion {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    overflow-y: auto;
+    max-height: 70vh;
+    padding: 10px;
+}
+
+.question {
+    background: #e9ecef;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contenu {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.containeurBtn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btnSup,.btnRepondre{
+    width: 40%;
+}
+
+.btnSup {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.btnSup:hover {
+    background: #a71d2a;
+}
+
+.btnRepondre {
+    background: #173965;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.btnRepondre:hover {
+    background: #0d2b50;
+}
+
+#pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#pagination button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+#pagination img {
+    width: 20px;
+    height: 20px;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
-#containeurQuestion{
-    width: 100%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
 
-.question{
-    margin-top: 2%;
-    margin-left: 6%;
-    width: 20%;
-    padding: 2%;
-    height: 35%;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2), 
-    0px 4px 6px rgba(0, 0, 0, 0.1);
-
-}
-.contenu{
-    height: 60%;
-}
-.containeurBtn{
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-}
-.btnSup,.btnRepondre{
-    color: white;
-    padding: 2% 5%;
-    border: none;
-    border-radius: 5px;
-}
-.btnSup{
-    background-color: red;
-}
-.btnRepondre{
-    background-color: #133b62;
-}
-#pagination{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 15%;
-}
-
-#pagination button{
-    background-color: transparent;
-    border: none;
-    display: flex;
-    align-items: center;
-}
-button:hover{
-    cursor: pointer;
-}
-#pagination button img{
-    height: 20px;
+#pagination span {
+    font-size: 16px;
+    font-weight: bold;
+    width: 250px;
 }
 #btnNext{
     rotate: 180deg;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    #containeurQuestion {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    #faq {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+    #containeurCarteBtn {
+        width: 100%;
+        padding: 20px;
+    }
+    #containeurQuestion {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .containeurBtn {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

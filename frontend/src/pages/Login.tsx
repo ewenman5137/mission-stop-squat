@@ -30,7 +30,6 @@ function Login() {
 
     return (
         <div id="login">
-            <img src="/login.jpg" alt="" />
             <div id="containeurContaineur">
                 <div id="containeurFormulaire">
                     <h1>Connexion</h1>

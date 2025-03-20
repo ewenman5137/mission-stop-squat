@@ -71,8 +71,8 @@ function Chatbot() {
                     onChange={(e) => setContenu(e.target.value)} 
                 />
                 <div id="containeurBtn">
-                    <button id="btnAnnuler" onClick={handleCancel}>Annuler</button>
-                    <button id="btnEnregistrer" onClick={handleSave}>Enregistrer</button>
+                    <button id="btn-annuler-chatbot" onClick={handleCancel}>Annuler</button>
+                    <button id="btn-enregistrer-chatbot" onClick={handleSave}>Enregistrer</button>
                 </div>
             </div>
         </div>

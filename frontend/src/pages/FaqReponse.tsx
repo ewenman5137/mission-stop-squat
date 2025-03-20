@@ -61,28 +61,11 @@ function FaqReponse() {
                     <>
                         <h2>Modifier la question</h2>
                         <label><strong>Nom :</strong></label>
-                        <input 
-                            type="text" 
-                            name="nom" 
-                            value={questionData.nom} 
-                            onChange={handleChange} 
-                        />
-
+                        <input type="text" name="nom" value={questionData.nom} onChange={handleChange} />
                         <label><strong>Question :</strong></label>
-                        <textarea 
-                            name="question" 
-                            value={questionData.question} 
-                            onChange={handleChange} 
-                        />
-
+                        <textarea name="question" value={questionData.question} onChange={handleChange}/>
                         <label><strong>Réponse :</strong></label>
-                        <textarea 
-                            name="reponse" 
-                            value={questionData.reponse} 
-                            onChange={handleChange} 
-                            placeholder="Écrire une réponse..."
-                        />
-                        
+                        <textarea name="reponse" value={questionData.reponse} onChange={handleChange} placeholder="Écrire une réponse..."/>
                         <div id="containeurBtn">
                             <button id="btnEnregistrer" onClick={handleSave}>Poster</button>
                         </div>
