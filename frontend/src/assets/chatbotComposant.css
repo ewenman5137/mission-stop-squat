@@ -1,0 +1,141 @@
+#chatbot-composant {
+    position: fixed;
+    z-index: 4000;
+    width: 26vw;
+    height: 40vh;
+    margin-left: 75vw;
+    margin-top: -40vh;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+#bouton-chatbot,
+#containeur-chatbot {
+    margin-right: 2vw;
+    margin-bottom: 2vh;
+}
+
+#bouton-chatbot {
+    background-color: #007bff;
+    border-radius: 50%;
+    width: 75px;
+    aspect-ratio: 1/1;
+    font-size: 1.5rem;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#bouton-chatbot:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+#containeur-chatbot {
+    height: 60vh;
+    width: 25vw;
+    background-color: white;
+    padding: 1%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+#fermer-chatbot {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    align-self: flex-end;
+    color: #555;
+    transition: color 0.3s;
+}
+
+#fermer-chatbot:hover {
+    color: #000;
+}
+
+#messages {
+    width: 100%;
+    height: 80%;
+    padding: 10px;
+    overflow-y: auto;
+    border-radius: 5px;
+}
+
+.message-utilisateur,
+.message-chatbot {
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.message-utilisateur {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+}
+
+.message-chatbot {
+    background-color: #f1f1f1;
+    color: black;
+    align-self: flex-start;
+}
+
+#containeur-message-utilisateur {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+#message-utilisateur {
+    width: 80%;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 1rem;
+    resize: none;
+}
+
+#envoyer-message {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    height: 100%;
+    width: 20%;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#envoyer-message:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#envoyer-message img{
+    height: 30px;
+}
+@media (max-width: 900px) {
+    #chatbot{
+        width: 50vw;
+        margin-left :48vw;
+    }
+    #containeur-chatbot{
+        width: 100%;
+    }
+}

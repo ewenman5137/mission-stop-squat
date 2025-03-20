@@ -32,9 +32,11 @@ a:hover{
 }
 .btnHome{
     transition: transform 0.5s ease;
+    color: white;
 }
 .btnHome:hover{
     transform: scale(1.1);
+    color: white;
 }
 nav {
     display: flex;
@@ -128,6 +130,7 @@ nav div img {
 
 #home h1{
     font-weight: bold;
+    color: white;
     font-size: 3rem;
 }
 #home p{
@@ -171,7 +174,6 @@ nav div img {
     align-items: center;
     justify-content: space-around;
     margin-top: 5vh;
-    height: 100vh;
     padding-bottom: 5%;
 }
 #containeurExplication h2{
@@ -262,8 +264,7 @@ nav div img {
 
 /* Conteneur principal du formulaire */
 #contact-form {
-    width: 35%;
-    height:95vh;
+    width: 40%;
     background: white;
     padding: 30px;
     border-radius: 15px;
@@ -813,7 +814,6 @@ footer {
 
     #containeurInfoFormulaire{
         flex-direction: column;
-        height: auto;
     }
     #containeurExplication{
         width: 95%;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
-import "../assets/chatbot.css";
+import "../assets/chatbotComposant.css";
 
 const API_KEY = import.meta.env.VITE_API_KEY_CHATBOT;
 const BACKEND_URL = import.meta.env.VITE_API_BACKEND; // Remplace par l'URL de ton backend
@@ -76,7 +76,7 @@ function ChatBot() {
     };
 
     return (
-        <div id="chatbot">
+        <div id="chatbot-composant">
             {afficheChatBot ? (
                 <div id="containeur-chatbot">
                     <button id="fermer-chatbot" onClick={() => setAfficheChatBot(false)}>✖</button>
