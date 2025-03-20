@@ -1,13 +1,20 @@
-#chatbot-composant {
+#chatbot-composant,#chatbot-composant-cacher {
     position: fixed;
     z-index: 4000;
     width: 26vw;
-    height: 40vh;
-    margin-left: 75vw;
-    margin-top: -40vh;
+    height: 50vh;
+    margin-left: 74vw;
+    margin-top: -50vh;
     display: flex;
     justify-content: end;
     align-items: end;
+}
+#chatbot-composant-cacher{
+    width: 10vh;
+    border-radius: 50%;
+    width: 75px;
+    aspect-ratio: 1/1;
+    margin-left: 92vw;
 }
 
 #bouton-chatbot,
@@ -38,7 +45,7 @@
 }
 
 #containeur-chatbot {
-    height: 60vh;
+    height: 70vh;
     width: 25vw;
     background-color: white;
     padding: 1%;
@@ -54,9 +61,11 @@
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    align-self: flex-end;
     color: #555;
     transition: color 0.3s;
+    display: flex;
+    justify-content: end;
+    margin-top: -3%;
 }
 
 #fermer-chatbot:hover {
@@ -76,7 +85,7 @@
     padding: 8px 12px;
     margin: 5px 0;
     border-radius: 8px;
-    max-width: 80%;
+    max-width: 90%;
     word-wrap: break-word;
 }
 
@@ -100,6 +109,7 @@
 }
 
 #message-utilisateur {
+    margin: 0;
     width: 80%;
     height: 50px;
     border-radius: 5px;
@@ -109,7 +119,8 @@
     resize: none;
 }
 
-#envoyer-message {
+#envoyer-message-chatbot {
+    margin: 0;
     background-color: #007bff;
     border: none;
     color: white;
@@ -122,12 +133,12 @@
     transition: background-color 0.3s, transform 0.2s;
 }
 
-#envoyer-message:hover {
+#envoyer-message-chatbot:hover {
     background-color: #0056b3;
     transform: scale(1.05);
 }
 
-#envoyer-message img{
+#envoyer-message-chatbot img{
     height: 30px;
 }
 @media (max-width: 900px) {

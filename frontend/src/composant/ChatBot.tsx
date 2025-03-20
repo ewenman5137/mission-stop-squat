@@ -76,7 +76,7 @@ function ChatBot() {
     };
 
     return (
-        <div id="chatbot-composant">
+        <div id={afficheChatBot ? "chatbot-composant":"chatbot-composant-cacher"}>
             {afficheChatBot ? (
                 <div id="containeur-chatbot">
                     <button id="fermer-chatbot" onClick={() => setAfficheChatBot(false)}>✖</button>
@@ -96,7 +96,7 @@ function ChatBot() {
                             onChange={(e) => setInputMessage(e.target.value)}
                             placeholder="Écrivez un message..."
                         ></textarea>
-                        <button id="envoyer-message" onClick={envoyerMessage} disabled={loading}>
+                        <button id="envoyer-message-chatbot" onClick={envoyerMessage} disabled={loading}>
                             <img src="/send.svg" alt="Envoyer" />
                         </button>
                     </div>
