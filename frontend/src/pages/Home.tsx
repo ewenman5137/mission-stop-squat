@@ -104,7 +104,7 @@ function Home() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const section = document.querySelector("#containeurFAQ");
+            const section = document.querySelector("#containeur-faq");
             if (section) {
                 const sectionTop = section.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
@@ -125,15 +125,15 @@ function Home() {
     return (
         <>
         <div>
-            <div id="containeurNav">
+            <div id="containeur-nav">
                 <nav>
-                    <div id="blocGauche">
+                    <div id="bloc-gauche">
                         <img src="/logo.png" alt="" />
                     </div>
-                    <div id="blocDroit">
+                    <div id="bloc-droit">
                         <a href="#home">Home</a>
                         <a href="#a-propos">Qui sommes nous ?</a>
-                        <a href="#nosValeurs">Notre solution</a>
+                        <a href="#nos-valeurs">Notre solution</a>
                     </div>
                 </nav>
             </div>
@@ -141,32 +141,32 @@ function Home() {
                 <div id="home">
                     <h1>Votre logement est squatté ?</h1>
                     <p>Nous avons la solution.</p>
-                    <div id="containeurButton">
-                        <a href="#contact-form" className="btnHome" id="contactezNous">Contactez-nous</a>
-                        <a href="#contact-form" className="btnHome" id="enSavoir">En savoir +</a>
+                    <div id="containeur-button">
+                        <a href="#contact-form" className="btn-home" id="contactez-nous">Contactez-nous</a>
+                        <a href="#contact-form" className="btn-home" id="en-savoir">En savoir +</a>
                     </div>
                 </div>
             </div>
             <Chatbot/>
-            <div id="containeurInfoFormulaire">
-                <div id="containeurExplication">
+            <div id="containeur-info-formulaire">
+                <div id="containeur-explication">
                     <div>
                         <h2>Mission Stop Squat achète votre bien squatté tel quel, avec les occupants.</h2>
-                        <p id="descriptionExplication">Les propriétaires de résidences squattées sont démunis face à des procédures d’expulsion complexes et longues. De plus, les dégradations subies entraînent des frais souvent difficiles à assumer.</p>
+                        <p id="description-explication">Les propriétaires de résidences squattées sont démunis face à des procédures d’expulsion complexes et longues. De plus, les dégradations subies entraînent des frais souvent difficiles à assumer.</p>
                     </div>
-                    <div id="containeurCommentCelaFonctionne">
+                    <div id="containeur-comment-cela-fonctionne">
                         <h2>Comment cela fonctionne ?</h2>
                         <div className="etape">
                             <p className="chiffre">1</p>
-                            <p className="infoChiffre">Remplissez le formulaire avec vos informations personnelles et les détails du bien.</p>
+                            <p className="info-chiffre">Remplissez le formulaire avec vos informations personnelles et les détails du bien.</p>
                         </div>
                         <div className="etape">
                             <p className="chiffre">2</p>
-                            <p className="infoChiffre">Nos experts vous contacteront bientôt pour plus d’informations et de détails sur le bien.</p>
+                            <p className="info-chiffre">Nos experts vous contacteront bientôt pour plus d’informations et de détails sur le bien.</p>
                         </div>
                         <div className="etape">
                             <p className="chiffre">3</p>
-                            <p className="infoChiffre">Sous 5 jours ouvrés, une proposition d’achat chiffrée vous sera communiquée. À défaut, nous vous indiquerons notre refus d’achat de votre bien.</p>
+                            <p className="info-chiffre">Sous 5 jours ouvrés, une proposition d’achat chiffrée vous sera communiquée. À défaut, nous vous indiquerons notre refus d’achat de votre bien.</p>
                         </div>
                     </div>
                 </div>
@@ -263,8 +263,8 @@ function Home() {
                 </div>
             </section>
 
-            <div id="containeurFAQ" className={isVisibleFAQ ? "visible" : ""}>
-                <div id="FAQ">
+            <div id="containeur-faq" className={isVisibleFAQ ? "visible" : ""}>
+                <div id="faq-home">
                     <h1>Vos questions fréquentes</h1>
                     <FAQAccordion data={faqData} />
                 </div>
@@ -276,7 +276,7 @@ function Home() {
                 <div className="footer-links">
                     <a href="#home">Home</a>
                     <a href="#a-propos">Qui somme-nous ?</a>
-                    <a href="#nosValeurs">Nos valeurs</a>
+                    <a href="#nos-valeurs">Nos valeurs</a>
                 </div>
 
                 <div className="footer-social">

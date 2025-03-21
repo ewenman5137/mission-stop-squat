@@ -28,11 +28,11 @@
     margin-bottom: 20px;
 }
 
-#containeurContaineur {
+#containeur-containeur {
     width: 100%;
 }
 
-#containeurFormulaire {
+#containeur-formulaire {
     display: flex;
     flex-direction: column;
     align-items: center;

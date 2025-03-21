@@ -30,8 +30,8 @@ function Login() {
 
     return (
         <div id="login">
-            <div id="containeurContaineur">
-                <div id="containeurFormulaire">
+            <div id="containeur-containeur">
+                <div id="containeur-formulaire">
                     <h1>Connexion</h1>
                     <input type="text" placeholder="Nom d'utilisateur" value={username} onChange={(e) => setUsername(e.target.value)} />
                     <input type="password" placeholder="Mot de passe" value={password} onChange={(e) => setPassword(e.target.value)} />

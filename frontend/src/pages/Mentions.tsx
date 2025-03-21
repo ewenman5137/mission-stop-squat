@@ -6,21 +6,21 @@ function Mentions() {
     return (
         <>
         <div>
-            <div id="containeurNav">
+            <div id="containeur-nav">
                 <nav>
-                    <div id="blocGauche">
+                    <div id="bloc-gauche">
                         <img src="/logo.png" alt="" />
                         <h1>Mission Stop Squat</h1>
                     </div>
-                    <div id="blocDroit">
+                    <div id="bloc-droit">
                         <a href="#home">Home</a>
-                        <a href="#quiSommeNous">Qui sommes nous ?</a>
-                        <a href="#notreSolution">Notre solution</a>
-                        <a href="#nosValeurs">Nos valeurs</a>
+                        <a href="#qui-sommes-nous">Qui sommes nous ?</a>
+                        <a href="#notre-solution">Notre solution</a>
+                        <a href="#nos-valeurs">Nos valeurs</a>
                     </div>
                 </nav>
             </div>
-            <div id="containeurMentions">
+            <div id="containeur-mentions">
                 <h1>Mentions Légales</h1>
 
                 <h2>Éditeur du site</h2>
@@ -56,16 +56,16 @@ function Mentions() {
             </div>
             <footer>
                 <p>Mission stop squat</p>
-                <div id="infoReseaux">
+                <div id="info-reseaux">
                     <p>Nous sommes la société suivante <a href="mission-stop-squat.com">Mission-stop-squat.com</a></p>
-                    <div id="containeurReseaux">
+                    <div id="containeur-reseaux">
                         <a href=""><img src="facebook.png" alt="" /></a>
                         <a href=""><img src="whatsapp.png" alt="" /></a>
                         <a href=""><img src="instagram.png" alt="" /></a>
                     </div>
                 </div>
-                <div className="barreSeparation"></div>
-                <div id="containeurInfoMentions">
+                <div className="barre-separation"></div>
+                <div id="containeur-info-mentions">
                     <p>© 2025 Mission Stop Squat</p>
                     <a href="/mentions">Mentions légales</a>
                     <p>Designé par Ewen Buhot et Johanne Vigouroux</p>

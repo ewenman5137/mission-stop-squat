@@ -64,13 +64,13 @@ function Chatbot() {
         <>
         <div id="chatbot">
             <Panel />
-            <div id="containeurInfo">
+            <div id="containeur-info">
                 <h2>Savoir du chatbot :</h2>
                 <textarea 
                     value={contenu} 
                     onChange={(e) => setContenu(e.target.value)} 
                 />
-                <div id="containeurBtn">
+                <div id="containeur-btn">
                     <button id="btn-annuler-chatbot" onClick={handleCancel}>Annuler</button>
                     <button id="btn-enregistrer-chatbot" onClick={handleSave}>Enregistrer</button>
                 </div>

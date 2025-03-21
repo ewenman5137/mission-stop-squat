@@ -54,9 +54,9 @@ function FaqReponse() {
 
     return (
         <>
-        <div id="faqReponse">
+        <div id="faq-reponse">
             <Panel />
-            <div id="containeurReponse">
+            <div id="containeur-reponse">
                 {questionData ? (
                     <>
                         <h2>Modifier la question</h2>
@@ -66,8 +66,8 @@ function FaqReponse() {
                         <textarea name="question" value={questionData.question} onChange={handleChange}/>
                         <label><strong>Réponse :</strong></label>
                         <textarea name="reponse" value={questionData.reponse} onChange={handleChange} placeholder="Écrire une réponse..."/>
-                        <div id="containeurBtn">
-                            <button id="btnEnregistrer" onClick={handleSave}>Poster</button>
+                        <div id="containeur-btn">
+                            <button id="btn-enregistrer" onClick={handleSave}>Poster</button>
                         </div>
                     </>
                 ) : (

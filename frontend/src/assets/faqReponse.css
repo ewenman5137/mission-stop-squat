@@ -1,5 +1,5 @@
 
-#faqReponse {
+#faq-reponse {
     display: flex;
     flex-direction: row;
     background: white;
@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-#containeurReponse {
+#containeur-reponse {
     width: 80%;
     padding: 20px;
     display: flex;
@@ -32,7 +32,7 @@ label {
     align-self: flex-start;
 }
 
-#containeurReponse input, textarea {
+#containeur-reponse input, textarea {
     width: 90%;
     padding: 10px;
     border-radius: 5px;
@@ -42,7 +42,7 @@ label {
     margin-bottom: 10px;
 }
 
-#containeurReponse label{
+#containeur-reponse label{
     width: 90%;
     margin-left: 4%;
     margin-bottom: 5px;
@@ -57,7 +57,7 @@ input:focus, textarea:focus {
     outline: none;
 }
 
-#containeurBtn {
+#containeur-btn {
     display: flex;
     justify-content: center;
     width: 90%;
@@ -82,12 +82,12 @@ button:hover {
 
 /* Responsive Design */
 @media (max-width: 800px) {
-    #faqReponse {
+    #faq-reponse {
         flex-direction: column;
         width: 90%;
         height: auto;
     }
-    #containeurReponse {
+    #containeur-reponse {
         width: 100%;
         padding: 20px;
     }

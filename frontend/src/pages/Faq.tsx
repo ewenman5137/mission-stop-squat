@@ -32,7 +32,7 @@ function Faq() {
   }, []);
 
   const handleRepondre = (questionId: number) => {
-    navigate(`/faqReponse/${questionId}`);
+    navigate(`/faq-reponse/${questionId}`);
     console.log(`Redirection vers la réponse de la question ID: ${questionId}`);
   };
 
@@ -56,8 +56,8 @@ function Faq() {
     <>
       <div id="faq">
         <Panel />
-        <div id="containeurCarteBtn">
-          <div id="containeurQuestion">
+        <div id="containeur-carte-btn">
+          <div id="containeur-question">
             {currentQuestions.length > 0 ? (
               currentQuestions.map((question) => (
                 <div key={question.id} className="question">
@@ -68,11 +68,11 @@ function Faq() {
                     <strong>Question :</strong>
                     <br /> {question.question}
                   </p>
-                  <div className="containeurBtn">
+                  <div className="containeur-btn">
                     <button className="btnSup">
                       Supprimer
                     </button>
-                    <button className="btnRepondre" onClick={() => handleRepondre(question.id)}>
+                    <button className="btn-repondre" onClick={() => handleRepondre(question.id)}>
                       Répondre
                     </button>
                   </div>
@@ -89,7 +89,7 @@ function Faq() {
             <span>
               Page {currentPage} / {Math.ceil(questions.length / questionsPerPage)}
             </span>
-            <button id="btnNext" onClick={nextPage} disabled={indexOfLastQuestion >= questions.length}>
+            <button id="btn-next" onClick={nextPage} disabled={indexOfLastQuestion >= questions.length}>
               <img src="/flechePage.svg" alt="Suivant" />
             </button>
           </div>
