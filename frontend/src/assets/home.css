@@ -4,7 +4,10 @@ body{
     font-family: "Arial", sans-serif;
 }
 
-
+html {
+    scroll-behavior: smooth;
+  }
+  
 
 #containeurNav {
     z-index: 10;
