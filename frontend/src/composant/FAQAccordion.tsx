@@ -24,6 +24,14 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ data }) => {
             expandIcon={<ExpandMoreIcon />}
             aria-controls={`panel${index}-content`}
             id={`panel${index}-header`}
+            sx={{
+              "&:hover": {
+                backgroundColor: "rgba(0, 0, 0, 0.05)", // pas de fond au survol
+              },
+              "&.Mui-expanded": {
+                backgroundColor: "transparent", // pas de fond après ouverture
+              }
+            }}
           >
             <Typography component="span">{item.question}</Typography>
           </AccordionSummary>

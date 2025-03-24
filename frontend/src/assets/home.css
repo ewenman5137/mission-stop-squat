@@ -72,8 +72,8 @@ nav div img {
 #bloc-droit {
     display: flex;
     width: 75%;
+    align-items: center;
     justify-content:space-around;
-    font-size: 1.1rem;
     margin-right: 5%;
 }
 
@@ -82,7 +82,8 @@ nav div img {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    position: relative;
+    font-size: 1.2rem;
+    margin: 0;
     transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
