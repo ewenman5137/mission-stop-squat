@@ -117,6 +117,26 @@ function Home() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+      
+        const data = Object.fromEntries(formData.entries());
+      
+        const response = await fetch('http://localhost:5000/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+      
+        if (response.ok) {
+          alert("Message envoyé avec succès !");
+        } else {
+          alert("Erreur lors de l'envoi du message.");
+        }
+      };
+      
+
 
     return (
         <>
@@ -129,7 +149,7 @@ function Home() {
                     <div id="bloc-droit">
                         <a href="#home">Home</a>
                         <a href="#a-propos">Qui sommes nous ?</a>
-                        <a href="#nos-valeurs">Notre solution</a>
+                        <a href="#nos-valeurs">Nos valeurs</a>
                     </div>
                 </nav>
             </div>
@@ -168,27 +188,26 @@ function Home() {
                 </div>
                 <div id="contact-form">
                     <h2>Contactez-nous</h2>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <label>Nom</label>
-                        <input className="input-from" type="text" placeholder="Votre nom" />
+                        <input name="nom" type="text" placeholder="Votre nom" required />
                         <label>Prénom</label>
-                        <input className="input-from" type="text" placeholder="Votre prénom" />
+                        <input name="prenom" type="text" placeholder="Votre prénom" required />
                         <label>Numéro de téléphone</label>
-                        <input className="input-from" type="text" placeholder="Ex : 0672838393" />
+                        <input name="telephone" type="text" placeholder="Ex : 0672838393" required />
                         <label>Email</label>
-                        <input className="input-from" type="email" placeholder="Votre email" />
+                        <input name="email" type="email" placeholder="Votre email" required />
                         <label>Adresse de votre bien</label>
-                        <input className="input-from" type="text" placeholder="Votre adresse" />
+                        <input name="adresse" type="text" placeholder="Votre adresse" required />
                         <label>Décrivez votre problème</label>
-                        <textarea placeholder="Votre message"></textarea>
+                        <textarea name="message" placeholder="Votre message" required></textarea>
                         <div className="checkbox-container">
-                            <input type="checkbox" />
+                            <input name="rgpd" type="checkbox" required />
                             <span>J'accepte la politique de confidentialité</span>
                         </div>
                         <button type="submit">Envoyer</button>
                     </form>
                 </div>
-
             </div>
             
             <section id="a-propos" className={`about-section ${isVisible ? "visible" : ""}`}>
