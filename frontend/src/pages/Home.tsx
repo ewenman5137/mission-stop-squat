@@ -8,12 +8,14 @@ import "react-phone-input-2/lib/style.css";
   
 function Home() {    
     const [faqData, setFaqData] = useState([]); // État pour stocker les questions
-    /*const [nomFAQ, setNomFAQ] = useState(""); // Stocke le nom
-    const [question, setQuestion] = useState(""); // Stocke la question
-    const [message, setMessage] = useState("");*/
+    const [showPopup, setShowPopup] = useState(false);
+    const [nomFAQ, setNomFAQ] = useState("");
+    const [question, setQuestion] = useState("");
+    const [message, setMessage] = useState("");
+
     // Fonction pour récupérer les questions depuis l'API
     useEffect(() => {
-        fetch("https://mission-stop-squat.onrender.com/faq/get_question") // URL de ton API Flask
+        fetch("http://localhost:5000/faq/get_question") // URL de ton API Flask
             .then((response) => response.json()) // Convertir en JSON
             .then((data) => {
                 console.log("Données FAQ reçues :", data); // Debug dans la console
@@ -22,33 +24,26 @@ function Home() {
             .catch((error) => console.error("Erreur lors de la récupération des FAQ :", error));
     }, []);
 
-    /*const envoyerQuestion = async (e: { preventDefault: () => void; }) => {
-        e.preventDefault(); // Empêche le rechargement de la page
-        
+    const envoyerQuestion = async (e: React.FormEvent) => {
+        e.preventDefault();
         if (!nomFAQ || !question) {
             setMessage("Veuillez remplir tous les champs !");
             return;
         }
-
-        const requestData = {
-            nom: nomFAQ,
-            question: question,
-            reponse: "", // La réponse sera vide au départ
-        };
-
+    
+        const requestData = { nom: nomFAQ, question, reponse: "" };
+    
         try {
-            const response = await fetch("https://mission-stop-squat.onrender.com/faq/add_question", {
+            const response = await fetch("http://localhost:5000/faq/add_question", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(requestData),
             });
-
+    
             if (response.ok) {
                 setMessage("✅ Question envoyée avec succès !");
-                setNomFAQ(""); // Réinitialiser le champ nom
-                setQuestion(""); // Réinitialiser le champ question
+                setNomFAQ("");
+                setQuestion("");
             } else {
                 setMessage("❌ Erreur lors de l'envoi de la question !");
             }
@@ -56,7 +51,8 @@ function Home() {
             console.error("Erreur :", error);
             setMessage("❌ Une erreur est survenue.");
         }
-    };*/
+    };
+    
 
     const [isVisible, setIsVisible] = useState(false);
 
@@ -235,7 +231,7 @@ function Home() {
             </section>
 
 
-            <section className={`valeurs-section ${isVisibleValue ? "visible" : ""}`} id="nosValeurs">
+            <section className={`valeurs-section ${isVisibleValue ? "visible" : ""}`} id="nos-valeurs">
                 <h2 className="valeurs-title">
                     Nous rachetons votre bien squatté <br />
                     avec des solutions <span className="highlight">fiables, humaines et sereines.</span>
@@ -267,6 +263,23 @@ function Home() {
                 <div id="faq-home">
                     <h1>Vos questions fréquentes</h1>
                     <FAQAccordion data={faqData} />
+                    <button className="btn-faq-popup" onClick={() => setShowPopup(true)}>Posez votre question</button>
+                    {showPopup && (
+                        <div className="popup-overlay">
+                            <div className="popup-form">
+                                <button className="close-btn-faq" onClick={() => setShowPopup(false)}>✖</button>
+                                <h2>Posez votre question</h2>
+                                <form onSubmit={envoyerQuestion}>
+                                    <label>Nom</label>
+                                    <input type="text" value={nomFAQ} onChange={(e) => setNomFAQ(e.target.value)} placeholder="Votre nom" />
+                                    <label>Votre question</label>
+                                    <textarea value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="Écrivez votre question ici..." />
+                                    <button type="submit">Envoyer</button>
+                                    {message && <p className="popup-message">{message}</p>}
+                                </form>
+                            </div>
+                        </div>
+                    )}
                 </div>
                 <img src="login.jpg" alt="" />
             </div>

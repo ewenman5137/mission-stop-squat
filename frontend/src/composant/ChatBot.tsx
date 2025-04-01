@@ -3,13 +3,12 @@ import ReactMarkdown from "react-markdown";
 import "../assets/chatbotComposant.css";
 
 const API_KEY = import.meta.env.VITE_API_KEY_CHATBOT;
-const BACKEND_URL = import.meta.env.VITE_API_BACKEND; // Remplace par l'URL de ton backend
 
 const fetchChatbotContent = async () => {
     try {
-        const response = await fetch(`${BACKEND_URL}`);
+        const response = await fetch("http://localhost:5000/chatbot") ;
         const data = await response.json();
-        return data.contenu || "Tu es un assistant spécialisé pour aider les clients à mieux comprendre l'entreprise Mission-Stop-Squat. L'objectif de Mission-Stop-Squat est de racheter des biens immobiliers occupés illégalement par des squatteurs ou des locataires qui ne paient plus leur loyer. Notre entreprise propose une solution rapide et sécurisée pour aider les propriétaires à récupérer leur bien en rachetant la propriété et en prenant en charge les démarches pour déloger les occupants illégaux. Ton rôle : Expliquer le fonctionnement de l'entreprise et les étapes du rachat. Conseiller les clients sur l'importance de remplir le formulaire de contact afin qu’un spécialiste puisse les recontacter par e-mail. Répondre uniquement aux questions en lien avec le squat, les loyers impayés et les services de Mission-Stop-Squat. Restrictions : ❌ Si une question ne concerne pas ces sujets, réponds : 'Je ne suis pas en mesure de répondre à cette question. Si vous estimez qu’elle est importante, vous pouvez la poser dans la FAQ en bas de cette page."; 
+        return data.contenu || "Reponds juste le chatbot n'est pas disponible actuellement"; 
     } catch (error) {
         console.error("Erreur lors de la récupération du texte du chatbot:", error);
         return "Erreur de chargement du contenu du chatbot.";
@@ -38,7 +37,7 @@ const fetchOpenAIResponse = async (messages: { sender: string; text: string }[],
         });
 
         const data = await response.json();
-        return data.choices?.[0]?.message?.content || "Erreur de réponse";
+        return data.choices?.[0]?.message?.content || "Le chatbot n'est pas disponible actuellement";
     } catch (error) {
         console.error("Erreur API:", error);
         return "Erreur de connexion à OpenAI.";
@@ -57,6 +56,11 @@ function ChatBot() {
         const loadChatbotContent = async () => {
             const content = await fetchChatbotContent();
             setSystemMessage(content);
+            if (messages.length === 0) {
+                setMessages([
+                    { sender: "bot", text: "Bonjour, je suis votre assistant personnalisé. Comment puis-je vous aider aujourd'hui ?" },
+                ]);
+            }
         };
         loadChatbotContent();
     }, []);

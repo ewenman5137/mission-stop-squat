@@ -137,3 +137,19 @@
         gap: 10px;
     }
 }
+
+.etat-reponse {
+    margin-top: 5px;
+    font-style: italic;
+  }
+  
+  .repondue {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .non-repondue {
+    color: red;
+    font-weight: bold;
+  }
+  

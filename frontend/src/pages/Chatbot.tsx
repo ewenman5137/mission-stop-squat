@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Panel from "../composant/panel";
-import "../assets/chatbot.css";
+import "../assets/adminChatbot.css";
 import { useNavigate } from "react-router-dom";
 
 function Chatbot() {
@@ -62,7 +62,7 @@ function Chatbot() {
 
     return (
         <>
-        <div id="chatbot">
+        <div id="chatbot-admin">
             <Panel />
             <div id="containeur-info">
                 <h2>Savoir du chatbot :</h2>
@@ -70,7 +70,7 @@ function Chatbot() {
                     value={contenu} 
                     onChange={(e) => setContenu(e.target.value)} 
                 />
-                <div id="containeur-btn">
+                <div id="containeur-btn-chatbot-admin">
                     <button id="btn-annuler-chatbot" onClick={handleCancel}>Annuler</button>
                     <button id="btn-enregistrer-chatbot" onClick={handleSave}>Enregistrer</button>
                 </div>

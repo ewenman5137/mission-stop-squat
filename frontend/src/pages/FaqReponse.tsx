@@ -52,6 +52,8 @@ function FaqReponse() {
         .catch((error) => console.error("Erreur lors de l'enregistrement de la réponse :", error));
     };
 
+    
+
     return (
         <>
         <div id="faq-reponse">
