@@ -12,6 +12,10 @@ function Home() {
     const [nomFAQ, setNomFAQ] = useState("");
     const [question, setQuestion] = useState("");
     const [message, setMessage] = useState("");
+    const [isSending, setIsSending] = useState(false);
+    const [emailSent, setEmailSent] = useState(false);
+    const [emailError, setEmailError] = useState(false);
+
 
     // Fonction pour récupérer les questions depuis l'API
     useEffect(() => {
@@ -119,25 +123,45 @@ function Home() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData(e.target);
+        setIsSending(true);
+        setEmailSent(false);
+        setEmailError(false);
       
+        const formData = new FormData(e.target);
         const data = Object.fromEntries(formData.entries());
       
-        const response = await fetch('http://localhost:5000/send-email', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
+        try {
+          const response = await fetch('http://localhost:5000/send-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          });
       
-        if (response.ok) {
-          alert("Message envoyé avec succès !");
-        } else {
-          alert("Erreur lors de l'envoi du message.");
+          if (response.ok) {
+            setEmailSent(true);
+            e.target.reset(); // Nettoie le formulaire
+          } else {
+            setEmailError(true);
+          }
+        } catch (error) {
+          console.error(error);
+          setEmailError(true);
+        } finally {
+          setIsSending(false);
         }
       };
+
+      useEffect(() => {
+        if (emailSent || emailError) {
+          const timer = setTimeout(() => {
+            setEmailSent(false);
+            setEmailError(false);
+          }, 3000);
+          return () => clearTimeout(timer);
+        }
+      }, [emailSent, emailError]);
       
-
-
+      
     return (
         <>
         <div>
@@ -205,7 +229,9 @@ function Home() {
                             <input name="rgpd" type="checkbox" required />
                             <span>J'accepte la politique de confidentialité</span>
                         </div>
-                        <button type="submit">Envoyer</button>
+                        <button type="submit" disabled={isSending}>
+                            {isSending ? "📨 Envoi..." : emailSent ? "✅ Envoyé !" : "Envoyer"}
+                        </button>
                     </form>
                 </div>
             </div>

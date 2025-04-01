@@ -799,6 +799,32 @@ footer {
 }
 
 
+/*pop up message envoyer*/
+.loading {
+    color: #007bff;
+    font-weight: bold;
+    animation: pulse 1s infinite;
+  }
+  
+  .success {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+  }
+
+  
 /* Responsive mobile */
 @media (max-width: 900px) {
     #containeur-nav{
