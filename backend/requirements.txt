@@ -4,4 +4,3 @@ Flask-SQLAlchemy
 bcrypt
 dotenv
 flask-mail
-gunicorn
