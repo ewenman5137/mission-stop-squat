@@ -6,7 +6,7 @@ const API_KEY = import.meta.env.VITE_API_KEY_CHATBOT;
 
 const fetchChatbotContent = async () => {
     try {
-        const response = await fetch("http://localhost:5000/chatbot") ;
+        const response = await fetch("http://api/chatbot") ;
         const data = await response.json();
         return data.contenu || "Reponds juste le chatbot n'est pas disponible actuellement"; 
     } catch (error) {

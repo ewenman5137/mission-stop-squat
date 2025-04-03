@@ -19,7 +19,7 @@ function Home() {
 
     // Fonction pour récupérer les questions depuis l'API
     useEffect(() => {
-        fetch("http://localhost:5000/faq/get_question") // URL de ton API Flask
+        fetch("http://api/faq/get_question") // URL de ton API Flask
             .then((response) => response.json()) // Convertir en JSON
             .then((data) => {
                 console.log("Données FAQ reçues :", data); // Debug dans la console
@@ -38,7 +38,7 @@ function Home() {
         const requestData = { nom: nomFAQ, question, reponse: "" };
     
         try {
-            const response = await fetch("http://localhost:5000/faq/add_question", {
+            const response = await fetch("http://api/faq/add_question", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(requestData),
@@ -132,7 +132,7 @@ function Home() {
         const data = Object.fromEntries(formData.entries());
     
         try {
-            const response = await fetch("http://localhost:5000/send-email", {
+            const response = await fetch("http://api/send-email", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
