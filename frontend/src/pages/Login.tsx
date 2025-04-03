@@ -9,7 +9,7 @@ function Login() {
 
     // Fonction pour gérer la connexion
     const handleLogin = () => {
-        fetch("http://api/auth/login", {
+        fetch("/api/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -22,7 +22,7 @@ function Chatbot() {
 
     // Fonction pour récupérer le contenu du chatbot depuis l'API
     const fetchContenu = () => {
-        fetch("http://api/chatbot")  
+        fetch("/api/chatbot")  
             .then((response) => response.json())
             .then((data) => {
                 if (data.contenu) {
@@ -40,7 +40,7 @@ function Chatbot() {
 
     // Fonction pour enregistrer les modifications
     const handleSave = () => {
-        fetch("http://api/chatbot/update", {
+        fetch("/api/chatbot/update", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

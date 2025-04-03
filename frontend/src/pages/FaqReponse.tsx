@@ -18,7 +18,7 @@ function FaqReponse() {
 
     // Récupérer les détails de la question
     useEffect(() => {
-        fetch(`http://api/faq/get_question_admin`)
+        fetch(`/api/faq/get_question_admin`)
             .then((response) => response.json())
             .then((data: Question[]) => {
                 const selectedQuestion = data.find(q => q.id === parseInt(id!));
@@ -38,7 +38,7 @@ function FaqReponse() {
 
     // Fonction pour enregistrer la modification
     const handleSave = () => {
-        fetch(`http://api/faq/update_full_question/${id}`, {
+        fetch(`/api/faq/update_full_question/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

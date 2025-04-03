@@ -26,7 +26,7 @@ function Faq() {
 
   // Récupération des questions
   useEffect(() => {
-    fetch("http://api/faq/get_question_admin")
+    fetch("/api/faq/get_question_admin")
       .then((response) => response.json())
       .then((data: Question[]) => {
         setQuestions(data);
@@ -63,7 +63,7 @@ function Faq() {
     if (!confirmDelete) return;
   
     try {
-      const response = await fetch(`http://api/faq/delete_question/${questionId}`, {
+      const response = await fetch(`/api/faq/delete_question/${questionId}`, {
         method: "DELETE",
       });
   
