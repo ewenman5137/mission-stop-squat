@@ -30,12 +30,13 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - react-build:/usr/share/nginx/html
-      - certbot-etc:/etc/letsencrypt
+      - certbot-etc:/etc/letsencrypt:ro
       - certbot-var:/var/lib/letsencrypt
       - ./nginx:/var/www/certbot
     depends_on:
       - backend
       - frontend
+    restart: unless-stopped
 
   certbot:
     image: certbot/certbot
@@ -45,8 +46,9 @@ services:
       - certbot-var:/var/lib/letsencrypt
       - ./nginx:/var/www/certbot
     entrypoint: ""
-    command: > 
-      sh -c "trap exit TERM; while :; do sleep 6h & wait $${!}; certbot renew; done"
+    command: >
+      sh -c "trap exit TERM; while :; do sleep 6h & wait $${!}; certbot renew --webroot -w /var/www/certbot; done"
+    restart: unless-stopped
 
 volumes:
   react-build:
