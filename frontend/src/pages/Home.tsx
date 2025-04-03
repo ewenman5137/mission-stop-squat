@@ -121,35 +121,37 @@ function Home() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSending(true);
         setEmailSent(false);
         setEmailError(false);
-      
-        const formData = new FormData(e.target);
+    
+        const form = e.target as HTMLFormElement;
+        const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
-      
+    
         try {
-          const response = await fetch('http://localhost:5000/send-email', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data),
-          });
-      
-          if (response.ok) {
-            setEmailSent(true);
-            e.target.reset(); // Nettoie le formulaire
-          } else {
-            setEmailError(true);
-          }
+            const response = await fetch("http://localhost:5000/send-email", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+    
+            if (response.ok) {
+                setEmailSent(true);
+                form.reset(); // Nettoie le formulaire
+            } else {
+                setEmailError(true);
+            }
         } catch (error) {
-          console.error(error);
-          setEmailError(true);
+            console.error(error);
+            setEmailError(true);
         } finally {
-          setIsSending(false);
+            setIsSending(false);
         }
-      };
+    };
+    
 
       useEffect(() => {
         if (emailSent || emailError) {
