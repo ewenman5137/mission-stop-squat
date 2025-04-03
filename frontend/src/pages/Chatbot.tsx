@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Panel from "../composant/panel";
 import "../assets/adminChatbot.css";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 
 function Chatbot() {
     const [contenu, setContenu] = useState(""); // Stocke le contenu modifiable
@@ -62,6 +63,10 @@ function Chatbot() {
 
     return (
         <>
+        <Helmet>
+            <title>Mission Stop Squat - Chatbot</title>
+            <meta name="description" content="Vendez votre logement squatté rapidement et légalement avec notre expertise." />
+        </Helmet>
         <div id="chatbot-admin">
             <Panel />
             <div id="containeur-info">

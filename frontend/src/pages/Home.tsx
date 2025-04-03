@@ -3,6 +3,10 @@ import "../assets/home.css"
 import FAQAccordion from "../composant/FAQAccordion";
 import Chatbot from "../composant/ChatBot";
 import "react-phone-input-2/lib/style.css";
+import { Helmet } from 'react-helmet-async';
+
+
+
 
 
   
@@ -15,7 +19,6 @@ function Home() {
     const [isSending, setIsSending] = useState(false);
     const [emailSent, setEmailSent] = useState(false);
     const [emailError, setEmailError] = useState(false);
-
 
     // Fonction pour récupérer les questions depuis l'API
     useEffect(() => {
@@ -166,6 +169,23 @@ function Home() {
       
     return (
         <>
+        <Helmet>
+            <title>Mission Stop Squat</title>
+            <meta name="description" content="Vendez votre logement squatté rapidement et légalement avec notre expertise." />
+
+            {/* Open Graph (Facebook, WhatsApp, etc.) */}
+            <meta property="og:title" content="Mission Stop Squat" />
+            <meta property="og:description" content="Vendez votre logement squatté rapidement et légalement." />
+            <meta property="og:image" content="https://mission-stop-squat.fr/og-image.jpg" />
+            <meta property="og:url" content="https://mission-stop-squat.fr/" />
+            <meta property="og:type" content="website" />
+
+            {/* Twitter Card */}
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Mission Stop Squat" />
+            <meta name="twitter:description" content="Nous achetons les logements squattés rapidement et légalement." />
+            <meta name="twitter:image" content="https://mission-stop-squat.fr/og-image.jpg" />
+        </Helmet>
         <div>
             <div id="containeur-nav">
                 <nav>

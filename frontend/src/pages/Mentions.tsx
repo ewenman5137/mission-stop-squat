@@ -1,10 +1,15 @@
 import "../assets/home.css"
 import "../assets/mentions.css"
+import { Helmet } from 'react-helmet-async';
 
   
 function Mentions() {    
     return (
         <>
+        <Helmet>
+            <title>Mission Stop Squat - Mentions legal</title>
+            <meta name="description" content="Vendez votre logement squatté rapidement et légalement avec notre expertise." />
+        </Helmet>
         <div>
             <div id="containeur-nav">
                 <nav>

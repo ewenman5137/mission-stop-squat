@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/login.css";
+import { Helmet } from 'react-helmet-async';
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -30,6 +31,10 @@ function Login() {
 
     return (
         <div id="login">
+            <Helmet>
+                <title>Mission Stop Squat - Login</title>
+                <meta name="description" content="Vendez votre logement squatté rapidement et légalement avec notre expertise." />
+            </Helmet>
             <div id="containeur-containeur">
                 <div id="containeur-formulaire">
                     <h1>Connexion</h1>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Panel from "../composant/panel";
 import "../assets/faq.css";
+import { Helmet } from 'react-helmet-async';
 
 interface Question {
   id: number;
@@ -83,6 +84,10 @@ function Faq() {
 
   return (
     <div id="faq">
+      <Helmet>
+            <title>Mission Stop Squat - FAQ</title>
+            <meta name="description" content="Vendez votre logement squatté rapidement et légalement avec notre expertise." />
+        </Helmet>
       <Panel />
       <div id="containeur-carte-btn">
         <div id="containeur-question">

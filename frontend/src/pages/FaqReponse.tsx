@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Panel from "../composant/panel";
 import "../assets/faqReponse.css";
+import { Helmet } from 'react-helmet-async';
 
 // Définition du type pour une question
 interface Question {
@@ -56,6 +57,10 @@ function FaqReponse() {
 
     return (
         <>
+        <Helmet>
+            <title>Mission Stop Squat - Faq reponse</title>
+            <meta name="description" content="Vendez votre logement squatté rapidement et légalement avec notre expertise." />
+        </Helmet>
         <div id="faq-reponse">
             <Panel />
             <div id="containeur-reponse">
