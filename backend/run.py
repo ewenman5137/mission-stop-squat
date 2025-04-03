@@ -12,7 +12,7 @@ from app.models.FAQ import FAQ
 from app.models.ChatBot import ChatBot
 from app.routes.route_chatbot import chatbot
 from app.routes.route_FAQ import faq_bp
-#from app.routes.route_contact import route_contact
+from app.routes.route_contact import route_contact
 from app.routes.route_auth import auth_bp
 from app.routes import base
 from app.services import mdp
@@ -38,7 +38,7 @@ app.register_blueprint(base)
 app.register_blueprint(chatbot, url_prefix="/chatbot")
 app.register_blueprint(faq_bp, url_prefix="/faq")
 app.register_blueprint(auth_bp, url_prefix="/auth/")
-#app.register_blueprint(route_contact)
+app.register_blueprint(route_contact)
 
 
 # ✅ Création des tables + contenu par défaut
