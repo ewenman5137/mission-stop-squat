@@ -4,7 +4,6 @@ services:
   backend:
     build:
       context: ./backend
-    container_name: flask-backend
     expose:
       - "5000"
     env_file:
@@ -15,7 +14,6 @@ services:
   frontend:
     build:
       context: ./frontend
-    container_name: react-frontend
     command: ["npm", "run", "build"]
     volumes:
       - react-build:/app/dist
@@ -23,14 +21,13 @@ services:
 
   nginx:
     image: nginx:alpine
-    container_name: nginx
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - react-build:/usr/share/nginx/html
-      - ./nginx/letsencrypt:/etc/letsencrypt:ro  # ✅ on monte le dossier complet
+      - ./nginx/letsencrypt:/etc/letsencrypt:ro
       - ./nginx:/var/www/certbot
     depends_on:
       - backend
@@ -39,13 +36,16 @@ services:
 
   certbot:
     image: certbot/certbot
-    container_name: certbot
+    # Garder l'entrypoint par défaut (pas de entrypoint: "") !
+    # La commande ci-dessous lance une boucle de renouvellement toutes les 12h :
+    command: >
+      sh -c "trap exit TERM; while :; do
+        sleep 12h & wait $${!};
+        certbot renew --webroot -w /var/www/certbot;
+      done"
     volumes:
       - ./nginx/letsencrypt:/etc/letsencrypt
       - ./nginx:/var/www/certbot
-    entrypoint: ""
-    command: >
-      sh -c "trap exit TERM; while :; do sleep 6h & wait $${!}; certbot renew --webroot -w /var/www/certbot; done"
     restart: unless-stopped
 
 volumes:
