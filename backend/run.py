@@ -34,11 +34,12 @@ mdp.mail = mail  # Injection manuelle dans ton fichier mdp.py
 db.init_app(app)
 
 # ✅ Enregistrement des routes
-app.register_blueprint(base)
-app.register_blueprint(chatbot, url_prefix="/chatbot")
-app.register_blueprint(faq_bp, url_prefix="/faq")
-app.register_blueprint(auth_bp, url_prefix="/auth/")
-app.register_blueprint(route_contact)
+app.register_blueprint(base, url_prefix="/api")
+app.register_blueprint(chatbot, url_prefix="/api/chatbot")
+app.register_blueprint(faq_bp, url_prefix="/api/faq")
+app.register_blueprint(auth_bp, url_prefix="/api/auth/")
+app.register_blueprint(route_contact, url_prefix="/api/contact")
+
 
 
 # ✅ Création des tables + contenu par défaut

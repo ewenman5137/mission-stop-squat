@@ -17,7 +17,6 @@ services:
     command: ["npm", "run", "build"]
     volumes:
       - react-build:/app/dist
-    restart: unless-stopped
 
   nginx:
     image: nginx:alpine
@@ -32,7 +31,6 @@ services:
     depends_on:
       - backend
       - frontend
-    restart: unless-stopped
 
   certbot:
     image: certbot/certbot
@@ -46,7 +44,6 @@ services:
     volumes:
       - ./nginx/letsencrypt:/etc/letsencrypt
       - ./nginx:/var/www/certbot
-    restart: unless-stopped
 
 volumes:
   react-build:
