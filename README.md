@@ -42,26 +42,39 @@ Une application web full-stack pour accompagner les victimes de squat via un cha
 
 ## Arborescence
 
-mission-stop-squat/
-├── backend/
-│ ├── app/
-│ │ ├── models/ # Modèles SQLAlchemy
-│ │ └── routes/ # Blueprints Flask
-│ ├── config.py # Config Flask & Mail
-│ ├── run.py # Point d’entrée
-│ └── requirements.txt # Dépendances Python
-├── frontend/
-│ ├── public/ # Assets & CSS
-│ ├── src/
-│ │ ├── composants/ # ChatBot, FAQAccordion…
-│ │ └── pages/ # Home, FAQ, ChatBot, Login…
-│ ├── package.json # Dépendances JS
-│ └── vite.config.ts # Config Vite
-├── nginx/
-│ └── nginx.conf # Reverse proxy
-├── docker-compose.yml # Dev : backend + frontend + proxy
-├── docker-compose.prod.yml # Prod optimisé
-└── .gitignore
+- **mission-stop-squat/**
+  - **backend/**
+    - **app/**
+      - **models/**  
+        Modèles SQLAlchemy (FAQ, Chatbot, …)
+      - **routes/**  
+        Blueprints Flask (auth, faq, chatbot, contact)
+    - `config.py`  
+      Configuration Flask & Mail
+    - `run.py`  
+      Point d’entrée de l’API
+    - `requirements.txt`  
+      Dépendances Python
+  - **frontend/**
+    - **public/**  
+      Assets & CSS
+    - **src/**
+      - **composants/**  
+        ChatBot, FAQAccordion, etc.
+      - **pages/**  
+        Home, FAQ, ChatBot, Login, …
+    - `package.json`  
+      Dépendances JS
+    - `vite.config.ts`  
+      Configuration Vite
+  - **nginx/**
+    - `nginx.conf`  
+      Reverse-proxy Nginx
+  - `docker-compose.yml`  
+    Dev : backend + frontend + proxy
+  - `docker-compose.prod.yml`  
+    Prod : images optimisées
+  - `.gitignore`
 
 ---
 
