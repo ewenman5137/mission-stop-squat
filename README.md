@@ -94,77 +94,82 @@ Une application web full-stack pour accompagner les victimes de squat via un cha
    git clone https://github.com/ewenman5137/mission-stop-squat.git
    cd mission-stop-squat
 
-Copier et renseigner les fichiers d’environnement :
+2. Copier et renseigner les fichiers d’environnement :
 
 backend/.env
 
 frontend/.env
 
-Lancer la stack :
+3. Lancer la stack :
 
-bash
-Copier
-Modifier
 docker-compose up --build
-Accéder à http://localhost
 
-Sans Docker
+4.Accéder à http://localhost
+
+### Sans Docker
+
 Backend
-bash
-Copier
-Modifier
+
 cd backend
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env    # renseigner MAIL_USERNAME, MAIL_PASSWORD…
 python run.py
+
 API disponible sur http://localhost:5000/api.
 
 Frontend
-bash
-Copier
-Modifier
+
+
 cd frontend
 npm install
 cp .env.example .env    # renseigner VITE_API_URL=http://localhost:5000
 npm run dev
 Frontend disponible sur http://localhost:5173.
 
-Configuration
+### Configuration
+
 backend/.env
 dotenv
-Copier
-Modifier
+
 MAIL_USERNAME=youremail@gmail.com
 MAIL_PASSWORD=your_app_password
 MAIL_DEFAULT_SENDER="Mission Stop Squat <youremail@gmail.com>"
+
 frontend/.env
 dotenv
-Copier
-Modifier
+
 VITE_API_URL=http://localhost:5000
+
 Usage
 Chatbot : poser vos questions via l’interface.
 
-FAQ : consultez ou éditez (API GET /api/faq, POST /api/faq).
+## Routes principales
 
-Contact : remplissez le formulaire pour envoyer un email (POST /api/contact).
+- **Authentification**
+  - `POST /api/auth/register`
+  - `POST /api/auth/login` (retourne un JWT)
 
-Auth :
+- **FAQ**
+  - `GET  /api/faq`
+  - `POST /api/faq`
 
-POST /api/auth/register
+- **Chatbot**
+  - `GET  /api/chatbot`
+  - `POST /api/chatbot/respond`
 
-POST /api/auth/login (JWT)
+- **Contact**
+  - `POST /api/contact`
 
-Contribution
-Forkez ce dépôt
+---
 
-Créez une branche feature/ma-fonctionnalité
+## Contribution
 
-Codez, testez, committez
-
-Ouvrez une Pull Request vers main
+1. Forkez ce dépôt  
+2. Créez une branche `feature/ma-fonctionnalité`  
+3. Codez, testez et validez vos changements  
+4. Ouvrez une Pull Request vers la branche `main`
 
 Licence
 MIT © ewenman5137
